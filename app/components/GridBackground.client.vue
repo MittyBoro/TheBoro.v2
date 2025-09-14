@@ -10,6 +10,7 @@ const mouseY = ref(0)
 
     <!-- Сетка -->
     <div class="grid-bg"></div>
+
     <!-- Сетка с цветом -->
     <div
       class="grid-bg grid-bg--colored"
@@ -18,32 +19,33 @@ const mouseY = ref(0)
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .grid-bg {
   --grid-color: rgb(255 255 255 / 5%);
   --grid-size: 32px;
+  --light-size: 170px;
   --mouse-x: 0;
   --mouse-y: 0;
 
-  position: absolute;
   position: fixed;
   z-index: 20;
   background-image:
     linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
   background-size: var(--grid-size) var(--grid-size);
-  mask-composite: 'intersect';
+  background-attachment: fixed;
+  mask-composite: intersect;
+  pointer-events: none;
   inset: 0;
-  mask-image: radial-gradient(circle at var(--mouse-x) var(--mouse-y), transparent 0%, #000 150px);
 
   &--colored {
     --grid-color: var(--color-primary);
 
-    opacity: 0.4;
+    opacity: 0.1;
     mask-image: radial-gradient(
       circle at var(--mouse-x) var(--mouse-y),
       #000 0%,
-      transparent 150px
+      transparent var(--light-size)
     );
   }
 }

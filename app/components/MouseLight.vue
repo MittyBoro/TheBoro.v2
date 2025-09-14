@@ -145,8 +145,9 @@ onBeforeUnmount(() => {
 <style scoped lang="css">
 .mouse-trail {
   position: fixed;
-  inset: 0;
+  opacity: 0.5;
   filter: blur(v-bind(blur_amount + 'px'));
   pointer-events: none;
+  inset: 0;
 }
 </style>
