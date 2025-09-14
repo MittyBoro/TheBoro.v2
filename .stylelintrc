@@ -5,7 +5,17 @@
     "stylelint-config-recommended-scss",
     "stylelint-config-rational-order"
   ],
-  "plugins": ["stylelint-scss"],
+  "plugins": ["stylelint-scss", "stylelint-order"],
+  "overrides": [
+    {
+      "files": ["**/*.vue", "**/*.html"],
+      "customSyntax": "postcss-html"
+    },
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ],
   "rules": {
     "selector-class-pattern": null,
     "scss/at-rule-no-unknown": [
@@ -15,5 +25,14 @@
       }
     ]
   },
-  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "**/*.vue", "**/*.html"]
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "./node_modules/**",
+    "./dist/**",
+    "./.nuxt/**",
+    "./.output/**"
+  ]
 }

@@ -12,8 +12,13 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  color: white;
+  background-color: var(--color-primary);
+}
+
 .btn {
-  @apply rounded-3xl rounded-tr-xs rounded-bl-xs px-6 py-1.5 text-white transition-colors duration-300;
+  @apply rounded-3xl rounded-tr-xs rounded-bl-xs px-6 py-2 text-white transition-colors duration-300;
 }
 
 .btn-primary {
