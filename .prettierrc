@@ -1,0 +1,11 @@
+{
+  "semi": false,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "arrowParens": "always",
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "htmlWhitespaceSensitivity": "ignore",
+  "overrides": [{ "files": "*.scss", "options": { "printWidth": 1000 } }]
+}

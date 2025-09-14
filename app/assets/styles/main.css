@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+/* Общие стили для кнопок */
+
+@theme {
+  --color-primary: #fc213e;
+  --color-secondary: #d42038;
+  --font-sans: 'Exo 2', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.btn {
+  @apply rounded-3xl rounded-tr-xs rounded-bl-xs px-6 py-1.5 text-white transition-colors duration-300;
+}
+
+.btn-primary {
+  @apply from-primary to-secondary hover:from-secondary bg-gradient-to-r to-200% hover:to-100%;
+}
+
+.btn-outline {
+  @apply border-primary text-primary border-2 hover:border-white hover:text-white;
+}
