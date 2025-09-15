@@ -3,10 +3,9 @@ const words = [
   'Пишу на Vue и Laravel',
   'Делаю сайты',
   'Улучшаю интерфейсы',
-  'Ковыряю базы данных',
   'Работаю с Nuxt',
   'Доверил этот текст ChatGPT',
-] as const
+]
 
 const display = ref('')
 const currentWordIndex = ref(0)
@@ -35,6 +34,11 @@ function tick() {
     display.value = word.substring(0, charIndex.value - 1)
     charIndex.value--
     if (charIndex.value === 0) {
+      if (currentWordIndex.value === 0) {
+        // shuffle
+        words.sort(() => Math.random() - 0.5)
+        console.log('words', words)
+      }
       isDeleting.value = false
       currentWordIndex.value = (currentWordIndex.value + 1) % words.length
       timer = window.setTimeout(tick, pauseBetweenWords)
@@ -56,7 +60,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex items-center font-semibold">
+  <div class="flex items-center">
     <span class="text-white">
       {{ display }}
     </span>

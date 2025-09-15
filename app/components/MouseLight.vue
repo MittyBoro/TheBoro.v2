@@ -8,7 +8,7 @@ const canvasRef = ref<HTMLCanvasElement | null>(null)
 
 // ⚙️ Конфиг
 const blur_amount = 130
-const TRAIL_LENGTH = 50
+const TRAIL_LENGTH = 30
 const MAX_RADIUS = 100
 const FOLLOW_SPEED = 0.05 // скорость следования (меньше → больше отставание)
 
