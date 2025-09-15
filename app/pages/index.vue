@@ -4,6 +4,8 @@
 
 <template>
   <ScreensHero />
+  <ScreensAbout />
+  <ScreensWay />
   <!-- <Skills /> -->
   <!-- <Portfolio />
     <Contacts /> -->

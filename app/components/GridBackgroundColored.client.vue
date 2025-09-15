@@ -1,17 +1,21 @@
 <script setup lang="ts">
-const avatarElement = ref<HTMLElement | null>(null)
+const gridElement = ref<HTMLElement | null>(null)
 const gridStyle = reactive({
   '--mouse-x': '0px',
   '--mouse-y': '0px',
   opacity: 0,
 })
 
+const props = defineProps<{
+  opacity?: number
+}>()
+
 const updateLightPosition = () => {
-  if (!avatarElement.value) {
+  if (!gridElement.value) {
     return
   }
 
-  const rect = avatarElement.value?.getBoundingClientRect()
+  const rect = gridElement.value?.getBoundingClientRect()
   if (!rect) {
     return
   }
@@ -21,7 +25,7 @@ const updateLightPosition = () => {
 
   gridStyle['--mouse-x'] = `${x}px`
   gridStyle['--mouse-y'] = `${y}px`
-  gridStyle.opacity = 0.4
+  gridStyle.opacity = 0.3
 }
 
 onMounted(async () => {
@@ -38,24 +42,23 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="avatar-container relative flex items-center justify-center" ref="avatarElement">
-    <div class="avatar-shadow"></div>
-    <div class="grid-bg grid-bg--colored" :style="gridStyle"></div>
-    <NuxtImg
-      src="https://github.com/MittyBoro.png"
-      alt="Dmitrii Borodin"
-      class="avatar relative z-20 rounded-full md:size-64 lg:size-80"
-      priority
-    />
+  <div class="grid-container relative flex items-center justify-center" ref="gridElement">
+    <div class="absolute flex items-center justify-center" :style="{ opacity: props.opacity || 1 }">
+      <div class="grid-shadow"></div>
+      <div class="grid-bg grid-bg--colored" :style="gridStyle"></div>
+    </div>
+    <div>
+      <slot />
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.avatar-container {
+.grid-container {
   --animation-duration: 2s;
 }
 
-.avatar-shadow {
+.grid-shadow {
   position: absolute;
   width: 20%;
   height: 20%;
@@ -70,7 +73,7 @@ onBeforeUnmount(() => {
 .grid-bg {
   --light-size: 220px;
 
-  animation: light-size var(--animation-duration) ease-in-out infinite alternate;
+  animation: light-pulse var(--animation-duration) ease-in-out infinite alternate;
 }
 
 @keyframes border-radius-pulse {
@@ -85,7 +88,7 @@ onBeforeUnmount(() => {
   }
 }
 
-@keyframes light-size {
+@keyframes light-pulse {
   0% {
     opacity: 0.1;
   }

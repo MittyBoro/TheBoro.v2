@@ -37,7 +37,6 @@ function tick() {
       if (currentWordIndex.value === 0) {
         // shuffle
         words.sort(() => Math.random() - 0.5)
-        console.log('words', words)
       }
       isDeleting.value = false
       currentWordIndex.value = (currentWordIndex.value + 1) % words.length

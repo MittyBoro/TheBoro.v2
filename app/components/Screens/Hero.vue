@@ -1,16 +1,16 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section ref="hero" class="hero grid items-center gap-10 md:grid-cols-3">
+  <section class="hero relative mb-30 grid min-h-[95vh] items-center gap-10 py-30 md:grid-cols-5">
     <!--  -->
-    <div class="flex min-h-[90vh] flex-col justify-center py-54 md:col-span-2">
+    <div class="flex flex-col justify-center md:col-span-3">
       <!--  -->
       <div class="mb-2 text-xl">
         Привет, я
         <span class="text-primary">Дмитрий Бородин</span>
       </div>
       <!--  -->
-      <h1 class="m-0 -mx-[2px] text-4xl font-bold md:text-7xl">
+      <h1 class="m-0 -mx-[2px] text-4xl font-black md:text-7xl">
         Full Stack
         <span class="text-primary">Developer</span>
       </h1>
@@ -28,17 +28,13 @@
     </div>
 
     <!--  -->
-    <div class="sticky top-54 flex justify-center">
-      <Avatar />
+    <div class="flex justify-center md:col-span-2">
+      <CodeInfo />
     </div>
 
     <!--  -->
-    <div class="md:col-span-2">
-      <ScreensAbout />
-    </div>
-    <!--  -->
-    <div class="md:col-span-2">
-      <ScreensWay />
+    <div class="pointer-events-none absolute bottom-0 w-full">
+      <ScrollDown />
     </div>
   </section>
 </template>

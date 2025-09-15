@@ -25,6 +25,12 @@ export default defineNuxtConfig({
       ],
     },
   },
+  fonts: {
+    defaults: {
+      weights: [400, 900],
+      subsets: ['cyrillic-ext', 'cyrillic'],
+    },
+  },
   modules: ['@nuxt/fonts', '@nuxt/image'],
   vite: {
     plugins: [tailwindcss()],

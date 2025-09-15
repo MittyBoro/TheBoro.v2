@@ -32,10 +32,11 @@ const mouseY = ref(0)
   background-image:
     linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-position: 50% 50%;
   background-size: var(--grid-size) var(--grid-size);
   background-attachment: fixed;
-  mask-composite: intersect;
   pointer-events: none;
+  mask-composite: intersect;
   inset: 0;
 
   &--colored {

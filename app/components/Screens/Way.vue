@@ -1,9 +1,8 @@
 <script setup lang="ts">
-// Можно позже вынести данные в отдельный JSON, если захочешь
 const timeline = [
   {
-    period: '2024 — настоящее время',
-    place: 'Сеть автомобильных дилерских центров',
+    period: '2024 — н.в.',
+    place: 'Автомобильная компания',
     items: [
       'Развитие и поддержка корпоративного веб-сайта.',
       'Интеграция с CRM и внешними API для автоматизации бизнес-процессов.',
@@ -45,37 +44,55 @@ const timeline = [
 </script>
 
 <template>
-  <section class="relative py-20">
-    <TitleH2>
-      My
-      <span class="text-primary">way</span>
-    </TitleH2>
+  <section class="relative m-auto pb-30">
+    <div
+      class="absolute left-20 mb-10 text-[8.5rem] font-black text-black opacity-30 blur-xs"
+      style="writing-mode: vertical-rl"
+    >
+      EXPERIENCE
+    </div>
+    <!--  -->
+    <div class="relative grid gap-10 md:grid-cols-5">
+      <TitleH2 class="md:col-span-3 md:col-start-3">
+        My
+        <span class="text-primary">way</span>
+      </TitleH2>
+    </div>
+    <ul class="relative space-y-10">
+      <li
+        v-for="(block, index) in timeline"
+        :key="index"
+        class="group relative grid gap-10 md:grid-cols-5"
+      >
+        <div class="relative mt-1 md:col-span-2">
+          <div class="flex items-center justify-end gap-10">
+            <!-- Период -->
+            <span class="text-white/50 transition-colors group-hover:text-white">
+              {{ block.period }}
+            </span>
 
-    <div class="relative mx-auto max-w-4xl">
-      <!-- Вертикальная линия -->
-      <div
-        class="from-primary/70 to-primary/0 absolute top-3 bottom-3 left-4 w-0.5 bg-gradient-to-b"
-      ></div>
-
-      <ul class="space-y-12">
-        <li v-for="(block, index) in timeline" :key="index" class="group relative pl-12">
-          <!-- Точка на линии -->
+            <!-- Точка -->
+            <span
+              class="bg-primary/50 group-hover:bg-primary/90 shadow-3xl z-2 h-3 w-3 rounded-full backdrop-blur-xs transition group-hover:scale-125 group-hover:blur-[2px]"
+            ></span>
+          </div>
+          <!-- Линия -->
           <span
-            class="bg-primary/50 group-hover:bg-primary/90 shadow-3xl absolute top-2.5 left-[0.7em] block h-3 w-3 rounded-full backdrop-blur-xs transition group-hover:scale-125 group-hover:blur-[2px]"
+            v-if="index < timeline.length - 1"
+            class="from-primary/30 to-primary/20 absolute top-3 right-[5px] -bottom-14 w-0.5 bg-gradient-to-b"
           ></span>
-          <!-- Контент -->
+        </div>
 
-          <h3 class="mb-2 text-xl font-bold text-white/90">
+        <!-- Контент -->
+        <div class="relative md:col-span-3">
+          <h3 class="mb-4 text-xl font-black text-white/90">
             {{ block.place }}
           </h3>
-          <h4 class="mb-4 text-xs">
-            <span class="text-primary">{{ block.period }}</span>
-          </h4>
           <ul class="list-disc space-y-1 pl-5 text-gray-300">
             <li v-for="(item, i) in block.items" :key="i">{{ item }}</li>
           </ul>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
   </section>
 </template>

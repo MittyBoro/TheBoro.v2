@@ -6,6 +6,9 @@ const modelMouseY = defineModel<number>('mouseY')
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 
+const paused = ref(false)
+let pauseTimeout: number | undefined
+
 // ⚙️ Конфиг
 const blur_amount = 130
 const TRAIL_LENGTH = 30
@@ -45,6 +48,14 @@ function resizeCanvas() {
 function onMouseMove(e: MouseEvent) {
   mouseX = e.clientX
   mouseY = e.clientY
+  paused.value = false
+
+  if (pauseTimeout) {
+    clearTimeout(pauseTimeout)
+  }
+  pauseTimeout = window.setTimeout(() => {
+    paused.value = true
+  }, 3000)
 }
 
 function getPrimaryColor(): string {
@@ -81,7 +92,9 @@ function updateTrail() {
 
   // Добавляем новую точку
   points.unshift({ x: trailX, y: trailY })
-  if (points.length > TRAIL_LENGTH) points.pop()
+  if (points.length > TRAIL_LENGTH) {
+    points.pop()
+  }
 }
 
 function drawTrail(ctx: CanvasRenderingContext2D, color: string) {
@@ -139,7 +152,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <canvas ref="canvasRef" class="mouse-trail"></canvas>
+  <canvas ref="canvasRef" class="mouse-trail" :class="{ paused: paused }"></canvas>
 </template>
 
 <style scoped lang="css">
@@ -147,7 +160,13 @@ onBeforeUnmount(() => {
   position: fixed;
   opacity: 0.666;
   filter: blur(v-bind(blur_amount + 'px'));
+  transition: opacity 0.5s;
   pointer-events: none;
   inset: 0;
+}
+
+.mouse-trail.paused {
+  opacity: 0.444;
+  transition-duration: 3s;
 }
 </style>
