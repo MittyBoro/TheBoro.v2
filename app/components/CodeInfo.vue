@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const birthday = '1996-07-10'
+const birthday = '1996-10-07'
 const experienceStart = '2010-08-31'
 </script>
 

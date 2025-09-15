@@ -2,7 +2,6 @@
 const words = [
   'Пишу на Vue и Laravel',
   'Делаю сайты',
-  'Улучшаю интерфейсы',
   'Работаю с Nuxt',
   'Доверил этот текст ChatGPT',
 ]
@@ -60,7 +59,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="flex items-center">
-    <span class="text-white">
+    <span class="text-white/70">
       {{ display }}
     </span>
     <span class="text-primary animate-cursor ml-[2px] scale-x-150">|</span>
