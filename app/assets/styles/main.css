@@ -1,10 +1,31 @@
 @import 'tailwindcss';
+@import './prose.css';
 
 /* Общие стили для кнопок */
 
 @theme {
-  --color-primary: #fc213e;
+  --color-primary: #fd213a;
   --font-sans: 'Exo 2', sans-serif;
+}
+
+.theme-2 {
+  --color-primary: #fc8200;
+}
+
+.theme-3 {
+  --color-primary: #efcb00;
+}
+
+.theme-4 {
+  --color-primary: #7fcd00;
+}
+
+.theme-5 {
+  --color-primary: #2c81ff;
+}
+
+.theme-6 {
+  --color-primary: #ab4eff;
 }
 
 html {

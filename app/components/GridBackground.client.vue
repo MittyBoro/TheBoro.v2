@@ -41,7 +41,7 @@ const mouseY = ref(0)
   &--colored {
     --grid-color: var(--color-primary);
 
-    opacity: 0.1;
+    opacity: 0.2;
     mask-image: radial-gradient(
       circle at var(--mouse-x) var(--mouse-y),
       #000 0%,

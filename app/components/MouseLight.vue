@@ -16,8 +16,8 @@ const FOLLOW_SPEED = 0.05 // скорость следования (меньше
 let width = window.innerWidth
 let height = window.innerHeight
 let animationId: number
-let mouseX = width / 2
-let mouseY = height / 2
+let mouseX = width / 3
+let mouseY = -100
 let trailX = mouseX
 let trailY = mouseY
 const points: Point[] = Array.from({ length: TRAIL_LENGTH }, () => ({
@@ -145,7 +145,7 @@ onBeforeUnmount(() => {
 <style scoped lang="css">
 .mouse-trail {
   position: fixed;
-  opacity: 0.5;
+  opacity: 0.666;
   filter: blur(v-bind(blur_amount + 'px'));
   pointer-events: none;
   inset: 0;

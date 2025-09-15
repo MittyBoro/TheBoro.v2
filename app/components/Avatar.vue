@@ -52,7 +52,7 @@ onBeforeUnmount(() => {
 
 <style scoped lang="scss">
 .avatar-container {
-  --animation-duration: 3s;
+  --animation-duration: 2s;
 }
 
 .avatar-shadow {
@@ -62,21 +62,21 @@ onBeforeUnmount(() => {
   background: var(--color-primary);
   border-radius: 100% 0%;
   box-shadow: 0 0 0 110px var(--color-primary);
-  opacity: 0.5;
+  opacity: 0.4;
   filter: blur(80px);
   animation: border-radius-pulse var(--animation-duration) ease-in-out infinite alternate;
 }
 
 .grid-bg {
-  --light-size: 250px;
+  --light-size: 220px;
 
   animation: light-size var(--animation-duration) ease-in-out infinite alternate;
 }
 
 @keyframes border-radius-pulse {
   0% {
-    border-radius: 50%;
-    transform: scale(0.75);
+    border-radius: 0% 100%;
+    transform: scale(0.85);
   }
 
   100% {

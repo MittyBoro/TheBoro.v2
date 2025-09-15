@@ -56,7 +56,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="text-md flex items-center font-semibold">
+  <div class="flex items-center font-semibold">
     <span class="text-white">
       {{ display }}
     </span>
@@ -70,11 +70,13 @@ onBeforeUnmount(() => {
   45% {
     opacity: 1;
   }
+
   50%,
   95% {
     opacity: 0;
   }
 }
+
 .animate-cursor {
   animation: cursor-blink 1s steps(1) infinite;
 }

@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <Hero />
-  <Skills />
+  <ScreensHero />
+  <!-- <Skills /> -->
   <!-- <Portfolio />
     <Contacts /> -->
   <footer class="py-16 text-center text-xs text-gray-500">
