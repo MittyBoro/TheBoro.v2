@@ -15,7 +15,7 @@
         <span class="text-primary">Developer</span>
       </h1>
       <!--  -->
-      <TypingWords class="my-6 text-sm" />
+      <BlocksTypingWords class="my-6 text-sm" />
       <!--  -->
       <div class="max-w-lg text-xl text-white/90">
         Создаю веб-приложения, которые помогают бизнесу и клиентам.
@@ -29,12 +29,12 @@
 
     <!--  -->
     <div class="flex justify-center md:col-span-2">
-      <CodeInfo />
+      <BlocksCodeInfo />
     </div>
 
     <!--  -->
     <div class="pointer-events-none absolute bottom-0 w-full">
-      <ScrollDown />
+      <BlocksScrollDown />
     </div>
   </section>
 </template>

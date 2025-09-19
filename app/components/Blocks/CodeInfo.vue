@@ -4,7 +4,7 @@ const experienceStart = '2010-08-31'
 </script>
 
 <template>
-  <GridBackgroundColored :opacity="0.7">
+  <LayersGridBackgroundColored :opacity="0.7">
     <div class="card card-sm font-mono">
       <div class="text-gray-400">// Software Engineer</div>
       <div>
@@ -61,5 +61,5 @@ const experienceStart = '2010-08-31'
         <span class="text-gray-500">}</span>
       </div>
     </div>
-  </GridBackgroundColored>
+  </LayersGridBackgroundColored>
 </template>

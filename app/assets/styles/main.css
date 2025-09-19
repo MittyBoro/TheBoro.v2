@@ -17,6 +17,10 @@ html {
   background-color: #fff;
 }
 
+.section {
+  @apply relative m-auto w-full pb-60;
+}
+
 .btn {
   @apply rounded-3xl rounded-tr-xs rounded-bl-xs px-6 py-2 text-white transition-colors duration-300;
 }

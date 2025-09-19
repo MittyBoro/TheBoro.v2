@@ -1,19 +1,19 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section class="about grid items-center gap-10 pb-60 md:grid-cols-5">
+  <section class="section grid items-center gap-10 md:grid-cols-5">
     <!--  -->
     <div class="md:col-span-2">
-      <Avatar />
+      <BlocksAvatar />
     </div>
 
     <!--  -->
     <div class="md:col-span-3">
       <!--  -->
-      <TitleH2>
+      <BaseTitle>
         <span class="text-primary">About</span>
         me
-      </TitleH2>
+      </BaseTitle>
 
       <!--  -->
       <div class="prose prose-invert max-w-xl text-lg">

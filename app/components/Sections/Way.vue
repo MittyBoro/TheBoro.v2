@@ -48,7 +48,8 @@ const opacityByIndex = (index: number) => {
 </script>
 
 <template>
-  <section class="relative m-auto pb-30">
+  <section class="section">
+    <!--  -->
     <div
       class="absolute left-20 mb-10 text-[8.5rem] font-black text-black uppercase opacity-30 blur-xs"
       style="writing-mode: vertical-rl"
@@ -57,10 +58,10 @@ const opacityByIndex = (index: number) => {
     </div>
     <!--  -->
     <div class="relative grid gap-10 md:grid-cols-5">
-      <TitleH2 class="md:col-span-3 md:col-start-3">
+      <BaseTitle class="md:col-span-3 md:col-start-3">
         My
         <span class="text-primary">way</span>
-      </TitleH2>
+      </BaseTitle>
     </div>
     <ul class="relative space-y-10">
       <li

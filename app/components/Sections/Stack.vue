@@ -47,13 +47,22 @@ const stack = [
 </script>
 
 <template>
-  <section class="relative m-auto w-full pb-60">
+  <section class="section">
+    <!--  -->
+    <div
+      class="absolute left-22 text-8xl font-black text-black opacity-30 blur-xs"
+      style="writing-mode: vertical-rl"
+    >
+      <span>cd ./project  </span>
+      <span class="animate-[pulse_0.75s_linear_infinite]">_</span>
+    </div>
+
     <!--  -->
     <div class="relative grid gap-10 md:grid-cols-5">
-      <TitleH2 class="md:col-span-3 md:col-start-3">
+      <BaseTitle class="md:col-span-3 md:col-start-3">
         <span class="text-primary">Stack</span>
         & Tools
-      </TitleH2>
+      </BaseTitle>
     </div>
 
     <div class="relative grid gap-x-6 gap-y-12 md:grid-cols-5">

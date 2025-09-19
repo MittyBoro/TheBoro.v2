@@ -6,7 +6,7 @@ const mouseY = ref(0)
 <template>
   <div>
     <!-- Свечение курсора -->
-    <MouseLight class="z-10" v-model:mouseX="mouseX" v-model:mouseY="mouseY" />
+    <LayersMouseLight class="z-10" v-model:mouseX="mouseX" v-model:mouseY="mouseY" />
 
     <!-- Сетка -->
     <div class="grid-bg"></div>
