@@ -31,7 +31,7 @@ export default defineNuxtConfig({
       subsets: ['cyrillic-ext', 'cyrillic'],
     },
   },
-  modules: ['@nuxt/fonts', '@nuxt/image'],
+  modules: ['@nuxt/fonts', '@nuxt/image', '@nuxt/icon'],
   vite: {
     plugins: [tailwindcss()],
   },
