@@ -41,15 +41,19 @@ const timeline = [
     ],
   },
 ]
+
+const opacityByIndex = (index: number) => {
+  return 1 - Math.min(index * 0.01, 0.5)
+}
 </script>
 
 <template>
   <section class="relative m-auto pb-30">
     <div
-      class="absolute left-20 mb-10 text-[8.5rem] font-black text-black opacity-30 blur-xs"
+      class="absolute left-20 mb-10 text-[8.5rem] font-black text-black uppercase opacity-30 blur-xs"
       style="writing-mode: vertical-rl"
     >
-      EXPERIENCE
+      experience
     </div>
     <!--  -->
     <div class="relative grid gap-10 md:grid-cols-5">
@@ -63,6 +67,7 @@ const timeline = [
         v-for="(block, index) in timeline"
         :key="index"
         class="group relative grid gap-10 md:grid-cols-5"
+        :style="{ opacity: opacityByIndex(index) }"
       >
         <div class="relative mt-1 md:col-span-2">
           <div class="flex items-center justify-end gap-10">
@@ -73,7 +78,7 @@ const timeline = [
 
             <!-- Точка -->
             <span
-              class="bg-primary/50 group-hover:bg-primary/90 shadow-3xl z-2 h-3 w-3 rounded-full backdrop-blur-xs transition group-hover:scale-125 group-hover:blur-[2px]"
+              class="bg-primary/70 group-hover:bg-primary/90 shadow-3xl relative z-3 h-3 w-3 rounded-full backdrop-blur transition group-hover:scale-125 group-hover:blur-[2px]"
             ></span>
           </div>
           <!-- Линия -->

@@ -34,7 +34,7 @@ html {
   border-radius: 30px 2px;
   backdrop-filter: blur(3px);
 
-  @apply shadow-primary/5 p-8 shadow-2xl;
+  @apply shadow-primary/5 border-primary/5 border-2 p-8 shadow-2xl;
 }
 
 .card-sm {

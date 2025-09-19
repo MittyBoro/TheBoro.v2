@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/main.css'],
   app: {
     head: {
-      title: 'Full Stack разработчик Дмитрий Бородин',
+      title: 'Дмитрий Бородин | Full Stack разработчик ',
       meta: [
         {
           name: 'viewport',
