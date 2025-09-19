@@ -50,25 +50,28 @@ const stack = [
   <section class="section">
     <!--  -->
     <div
-      class="absolute left-22 text-8xl font-black text-black opacity-30 blur-xs"
+      class="absolute left-36 text-8xl font-black text-black opacity-30 blur-xs"
       style="writing-mode: vertical-rl"
     >
-      <span>cd ./project  </span>
+      <span>cd ./project </span>
       <span class="animate-[pulse_0.75s_linear_infinite]">_</span>
     </div>
 
     <!--  -->
     <div class="relative grid gap-10 md:grid-cols-5">
       <BaseTitle class="md:col-span-3 md:col-start-3">
-        <span class="text-primary">Stack</span>
-        & Tools
+        <span class="text-primary">Stack & </span>
+        <span>Tools</span>
       </BaseTitle>
     </div>
-
-    <div class="relative grid gap-x-6 gap-y-12 md:grid-cols-5">
-      <template v-for="(group, index) in stack" :key="index">
+    <ul class="space-y-12">
+      <li
+        class="grid space-y-12 gap-x-6 md:grid-cols-5"
+        v-for="(group, index) in stack"
+        :key="index"
+      >
         <!-- Заголовок категории (как даты в MyWay) -->
-        <div class="col-span-2 flex items-center justify-end">
+        <div class="col-span-2 my-auto">
           <h3
             class="text-right text-lg font-semibold tracking-wide text-gray-300 uppercase md:pr-10"
           >
@@ -83,13 +86,16 @@ const stack = [
             :key="item.name"
             class="card card-p-0 group flex aspect-square flex-col items-center justify-center"
           >
-            <Icon :name="item.icon" class="mb-4 text-2xl transition group-hover:scale-110" />
-            <span class="text-center text-xs text-gray-400 transition group-hover:text-white">
+            <Icon
+              :name="item.icon"
+              class="mb-4 text-2xl transition group-hover:scale-120 group-hover:brightness-120"
+            />
+            <span class="group:text-white text-center text-xs text-gray-400 transition">
               {{ item.name }}
             </span>
           </div>
         </div>
-      </template>
-    </div>
+      </li>
+    </ul>
   </section>
 </template>

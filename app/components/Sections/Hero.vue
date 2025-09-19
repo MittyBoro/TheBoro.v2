@@ -15,7 +15,17 @@
         <span class="text-primary">Developer</span>
       </h1>
       <!--  -->
-      <BlocksTypingWords class="my-6 text-sm" />
+      <BlocksTyping
+        class="my-6 text-sm text-white/70"
+        cursorClass="text-primary"
+        rand
+        :words="[
+          'Пишу на Vue и Laravel',
+          'Делаю сайты',
+          'Работаю с Nuxt',
+          'Доверил этот текст ChatGPT',
+        ]"
+      />
       <!--  -->
       <div class="max-w-lg text-xl text-white/90">
         Создаю веб-приложения, которые помогают бизнесу и клиентам.
@@ -36,5 +46,14 @@
     <div class="pointer-events-none absolute bottom-0 w-full">
       <BlocksScrollDown />
     </div>
+
+    <BlocksTyping
+      class="fixed bottom-[5vw] left-1/2 -z-1 w-[2em] -translate-x-1/2 text-[10rem] font-black text-black uppercase opacity-30 blur-sm"
+      prefix="›:"
+      :words="['4', '8', '15', '16', '23', '42']"
+      :typeSpeed="150"
+      :deleteSpeed="80"
+      :holdDelay="1200"
+    />
   </section>
 </template>

@@ -1,11 +1,41 @@
 <template>
-  <h2 class="mb-12 text-4xl font-black">
+  <h2 class="section__title mb-12 text-4xl font-black">
     <slot />
   </h2>
 </template>
 
-<style scoped lang="scss">
-:deep(.text-primary) {
-  border-bottom: 0.13em solid var(--color-primary);
+<style lang="scss">
+.section {
+  &__title .text-primary {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      bottom: -0.25em;
+      z-index: -1;
+      width: 30%;
+      height: 0.13em;
+      background: var(--color-primary);
+      opacity: 1;
+      transition: width 0.3s ease;
+      content: '';
+    }
+
+    &:first-child {
+      &::after {
+        left: 0;
+      }
+    }
+
+    &:last-child {
+      &::after {
+        right: 0;
+      }
+    }
+  }
+
+  &:hover .section__title .text-primary::after {
+    width: 130%;
+  }
 }
 </style>

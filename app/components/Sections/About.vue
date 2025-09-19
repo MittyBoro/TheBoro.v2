@@ -11,8 +11,8 @@
     <div class="md:col-span-3">
       <!--  -->
       <BaseTitle>
-        <span class="text-primary">About</span>
-        me
+        <span class="text-primary">About </span>
+        <span>me</span>
       </BaseTitle>
 
       <!--  -->

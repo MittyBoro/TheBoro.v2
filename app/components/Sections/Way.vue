@@ -2,7 +2,7 @@
 const timeline = [
   {
     period: '2024 — н.в.',
-    place: 'Автомобильная компания',
+    place: '🚗 Автомобильная компания',
     items: [
       'Развитие и поддержка корпоративного веб-сайта.',
       'Интеграция с CRM и внешними API для автоматизации бизнес-процессов.',
@@ -12,7 +12,7 @@ const timeline = [
   },
   {
     period: '2022 — 2024',
-    place: 'Cinema Streaming Service',
+    place: '📽️ Cinema Streaming Service',
     items: [
       'Создание платформы видеостриминга с масштабируемой архитектурой.',
       'Разработка фронтенда на Nuxt 3 и бэкенда на Laravel.',
@@ -23,7 +23,7 @@ const timeline = [
   },
   {
     period: '2014 — 2022',
-    place: 'Фриланс',
+    place: '💻 Фриланс',
     items: [
       'Реализация интернет-магазинов, новостных порталов и медиа-платформ.',
       'Разработка кастомных решений: боты, парсеры, интерактивные виджеты.',
@@ -33,7 +33,7 @@ const timeline = [
   },
   {
     period: '2010 — 2014',
-    place: 'Начало пути',
+    place: '🌱 Начало пути',
     items: [
       'Первые коммерческие проекты: сайты-визитки и лендинги.',
       'Работа с HTML, CSS, PHP и MySQL.',
@@ -43,7 +43,7 @@ const timeline = [
 ]
 
 const opacityByIndex = (index: number) => {
-  return 1 - Math.min(index * 0.01, 0.5)
+  return 1 - Math.min(index * 0.066, 0.5)
 }
 </script>
 
@@ -51,7 +51,7 @@ const opacityByIndex = (index: number) => {
   <section class="section">
     <!--  -->
     <div
-      class="absolute left-20 mb-10 text-[8.5rem] font-black text-black uppercase opacity-30 blur-xs"
+      class="absolute left-20 text-[8.5rem] font-black text-black uppercase opacity-30 blur-xs"
       style="writing-mode: vertical-rl"
     >
       experience
@@ -59,7 +59,7 @@ const opacityByIndex = (index: number) => {
     <!--  -->
     <div class="relative grid gap-10 md:grid-cols-5">
       <BaseTitle class="md:col-span-3 md:col-start-3">
-        My
+        <span>My </span>
         <span class="text-primary">way</span>
       </BaseTitle>
     </div>
@@ -94,7 +94,7 @@ const opacityByIndex = (index: number) => {
           <h3 class="mb-4 text-xl font-black text-white/90">
             {{ block.place }}
           </h3>
-          <ul class="list-disc space-y-1 pl-5 text-gray-300">
+          <ul class="list-disc space-y-1.5 pl-5 text-sm text-gray-300">
             <li v-for="(item, i) in block.items" :key="i">{{ item }}</li>
           </ul>
         </div>

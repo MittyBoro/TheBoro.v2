@@ -1,21 +1,32 @@
 <script setup lang="ts">
-const words = [
-  'Пишу на Vue и Laravel',
-  'Делаю сайты',
-  'Работаю с Nuxt',
-  'Доверил этот текст ChatGPT',
-]
+const { words, cursorClass, rand, typeSpeed, deleteSpeed, holdDelay, pauseBetweenWords } =
+  withDefaults(
+    defineProps<{
+      words: string[]
+      cursorClass?: string
+      prefix?: string
+      rand?: boolean
+      typeSpeed?: number
+      deleteSpeed?: number
+      holdDelay?: number
+      pauseBetweenWords?: number
+    }>(),
+    {
+      cursorClass: '',
+      prefix: '',
+      rand: false,
+      typeSpeed: 70,
+      deleteSpeed: 30,
+      holdDelay: 900,
+      pauseBetweenWords: 300,
+    },
+  )
 
 const display = ref('')
 const currentWordIndex = ref(0)
 const charIndex = ref(0)
 const isDeleting = ref(false)
 let timer: number | undefined
-
-const typeSpeed = 70 // ms per char while typing
-const deleteSpeed = 30 // ms per char while deleting
-const holdDelay = 900 // ms to hold full word before deleting
-const pauseBetweenWords = 300 // small pause after delete before next
 
 function tick() {
   const word = words[currentWordIndex.value]!
@@ -33,8 +44,7 @@ function tick() {
     display.value = word.substring(0, charIndex.value - 1)
     charIndex.value--
     if (charIndex.value === 0) {
-      if (currentWordIndex.value === 0) {
-        // shuffle
+      if (currentWordIndex.value === 0 && rand) {
         words.sort(() => Math.random() - 0.5)
       }
       isDeleting.value = false
@@ -58,11 +68,12 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="flex items-center">
-    <span class="text-white/70">
+  <div class="inline-flex items-center">
+    <span>{{ prefix }}</span>
+    <span>
       {{ display }}
     </span>
-    <span class="text-primary animate-cursor ml-[2px] scale-x-150">|</span>
+    <span :class="cursorClass" class="animate-cursor ml-[0.1em] scale-x-150">|</span>
   </div>
 </template>
 

@@ -13,7 +13,7 @@ let pauseTimeout: number | undefined
 const blur_amount = 130
 const TRAIL_LENGTH = 30
 const MAX_RADIUS = 100
-const FOLLOW_SPEED = 0.05 // скорость следования (меньше → больше отставание)
+const FOLLOW_SPEED = 0.15 // скорость следования (меньше → больше отставание)
 
 // 📦 Переменные состояния
 let width = window.innerWidth
