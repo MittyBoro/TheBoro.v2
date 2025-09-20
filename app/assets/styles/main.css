@@ -22,7 +22,35 @@ html {
 }
 
 .btn {
-  @apply rounded-3xl rounded-tr-xs rounded-bl-xs px-6 py-2 text-white transition-colors duration-300;
+  @apply flex items-center gap-2 px-5 py-3;
+  @apply text-sm text-white transition;
+  @apply rounded-2xl rounded-tr-xs rounded-bl-xs;
+  @apply shadow-primary/50 shadow-2xl;
+
+  --tw-shadow: 0 5px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 25%));
+
+  background: #0009;
+  backdrop-filter: blur(2px);
+}
+
+.btn:hover {
+  @apply border-transparent;
+}
+
+.btn .text {
+  @apply opacity-75 transition-opacity;
+}
+
+.btn .icon {
+  @apply transition-transform;
+}
+
+.btn:hover .text {
+  @apply opacity-100;
+}
+
+.btn:hover .icon {
+  @apply scale-125;
 }
 
 .btn-primary {
@@ -30,7 +58,7 @@ html {
 }
 
 .btn-outline {
-  @apply border-primary text-primary border-2 hover:border-white hover:text-white;
+  @apply border-2 border-white/50 text-white hover:border-white hover:text-white;
 }
 
 .card {

@@ -1,3 +1,12 @@
+<script setup lang="ts">
+const scrollNext = () => {
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: 'smooth',
+  })
+}
+</script>
+
 <template>
   <svg
     class="down-arrow"
@@ -10,6 +19,7 @@
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
+    @click="scrollNext"
   >
     <path d="M6 9l6 6 6-6" class="chevron chevron-1" />
     <path d="M6 15l6 6 6-6" class="chevron chevron-2" />
@@ -22,6 +32,8 @@
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
+  pointer-events: all;
 }
 
 .chevron {

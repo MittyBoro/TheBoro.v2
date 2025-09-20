@@ -1,22 +1,24 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { socials } = useAppConfig()
+</script>
 
 <template>
   <section class="hero relative mb-30 grid min-h-[95vh] items-center gap-10 py-30 md:grid-cols-5">
     <!--  -->
     <div class="flex flex-col justify-center md:col-span-3">
       <!--  -->
-      <div class="mb-5 text-xl">
+      <div class="mb-6 text-xl">
         Привет, я
         <span class="text-primary">Дмитрий Бородин</span>
       </div>
       <!--  -->
-      <h1 class="m-0 -mx-[2px] text-4xl font-black md:text-6xl">
+      <h1 class="-mx-[2px] mb-6 text-4xl font-black md:text-6xl">
         Full Stack
         <span class="text-primary">Developer</span>
       </h1>
       <!--  -->
       <BlocksTyping
-        class="my-6 text-sm text-white/70"
+        class="mb-6 text-sm text-white/70"
         cursorClass="text-primary"
         rand
         :words="[
@@ -26,14 +28,25 @@
           'Доверил этот текст ChatGPT',
         ]"
       />
+
       <!--  -->
-      <div class="max-w-lg text-xl text-white/90">
+      <div class="mb-10 max-w-lg text-xl text-white/90">
         Создаю веб-приложения, которые помогают бизнесу и клиентам.
       </div>
+
       <!--  -->
-      <div class="flex gap-4 pt-6">
-        <NuxtLink to="#portfolio" class="btn btn-primary">Обо мне</NuxtLink>
-        <NuxtLink to="#contacts" class="btn btn-outline">Связаться</NuxtLink>
+      <div class="flex flex-wrap gap-4">
+        <NuxtLink
+          v-for="social in socials"
+          :key="social.name"
+          :to="social.link"
+          class="btn"
+          target="_blank"
+          rel="noopener"
+        >
+          <Icon :name="social.icon" class="icon" />
+          <span class="text">{{ social.title }}</span>
+        </NuxtLink>
       </div>
     </div>
 

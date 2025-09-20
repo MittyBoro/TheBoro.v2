@@ -22,7 +22,7 @@ const mouseY = ref(0)
 <style lang="scss">
 .grid-bg {
   --grid-color: rgb(255 255 255 / 5%);
-  --grid-size: 32px;
+  --grid-size: 28px;
   --light-size: 170px;
   --mouse-x: 0;
   --mouse-y: 0;

@@ -90,7 +90,7 @@ const stack = [
               :name="item.icon"
               class="mb-4 text-2xl transition group-hover:scale-120 group-hover:brightness-120"
             />
-            <span class="group:text-white text-center text-xs text-gray-400 transition">
+            <span class="group:text-white text-center text-xs text-white/50 transition">
               {{ item.name }}
             </span>
           </div>
