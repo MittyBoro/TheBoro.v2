@@ -5,32 +5,33 @@ const { data: post } = await useAsyncData(`projects-${slug}`, () => {
   return queryCollection('projects').path(`/projects/${slug}`).first()
 })
 
-if (!post.value) {
+if (!post.value || (post.value.draft && !import.meta.dev)) {
   throw createError({ statusCode: 404, statusMessage: 'Not Found' })
 }
 </script>
 
 <template>
-  <article v-if="post" class="card card-xl mx-auto max-w-4xl">
-    <div class="mt-16"></div>
-    <!-- назад -->
-    <NuxtLink to="/#works" class="hover:text-primary text-sm text-white/40 transition-colors">
-      ← Все работы
-    </NuxtLink>
-
-    <!-- title -->
-    <h1 class="first-letter:text-primary mt-4 text-4xl font-bold">{{ post?.title }}</h1>
-    <!-- date -->
-    <div class="mt-2 text-sm text-white/40">
-      {{
-        new Date(post?.date).toLocaleDateString('ru-RU', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })
-      }}
+  <article v-if="post" class="group card card-xl mx-auto mt-20 max-w-4xl overflow-hidden">
+    <div
+      v-if="post.image"
+      class="relative -m-12 mask-b-from-white mask-b-from-50% mask-b-to-black mask-luminance"
+    >
+      <NuxtImg
+        :src="post.image"
+        class="pointer-events-none transition select-none"
+        :alt="`Image for ${post.title}`"
+      />
+      <NuxtImg
+        :src="post.image"
+        class="absolute top-2.5 opacity-20 blur-[1px] transition-opacity group-hover:opacity-5"
+        :alt="`Image for ${post.title}`"
+      />
     </div>
-    <!--  -->
-    <ContentRenderer class="prose prose-invert mt-10" :value="post" />
+    <div class="relative" :class="post.image ? '-mt-20' : 'mt-0'">
+      <!-- Title -->
+      <BlocksProjectTitle :post="post" />
+      <!-- Content -->
+      <ContentRenderer class="prose prose-invert" :value="post" />
+    </div>
   </article>
 </template>

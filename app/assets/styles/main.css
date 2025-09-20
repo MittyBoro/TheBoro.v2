@@ -36,8 +36,12 @@ html {
   backdrop-filter: blur(2px);
 }
 
+.btn-sm {
+  @apply gap-0.5 px-4 py-2 text-xs;
+}
+
 .btn:hover {
-  @apply border-transparent;
+  @apply border-transparent bg-white/20;
 }
 
 .btn .text {
@@ -74,16 +78,32 @@ html {
   @apply shadow-primary/5 border-primary/5 border-2 p-8 shadow-2xl;
 }
 
+.card .-m {
+  @apply -m-8;
+}
+
 .card-sm {
   @apply space-y-2 p-6 text-sm;
+}
+
+.card-sm .-m {
+  @apply -m-6;
 }
 
 .card-lg {
   @apply p-8;
 }
 
+.card-lg .-m {
+  @apply -m-8;
+}
+
 .card-xl {
   @apply p-12;
+}
+
+.card-xl .-m {
+  @apply -m-12;
 }
 
 .card-p-0 {

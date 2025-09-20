@@ -47,7 +47,7 @@ const stack = [
 </script>
 
 <template>
-  <section class="section">
+  <section id="stack" class="section">
     <!--  -->
     <div
       class="absolute left-36 text-8xl font-black text-black opacity-30 blur-xs"
