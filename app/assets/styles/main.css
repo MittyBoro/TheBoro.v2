@@ -25,7 +25,7 @@ html {
 /* Button Styles */
 
 .btn {
-  @apply flex items-center justify-center gap-2 px-5 py-3;
+  @apply inline-flex items-center justify-center gap-2 px-5 py-3;
   @apply text-sm text-white transition;
   @apply rounded-2xl rounded-tr-xs rounded-bl-xs;
   @apply shadow-primary/50 shadow-2xl;
@@ -33,6 +33,7 @@ html {
   --tw-shadow: 0 5px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 25%));
 
   background: #0009;
+  cursor: pointer;
   backdrop-filter: blur(2px);
 }
 
@@ -41,7 +42,7 @@ html {
 }
 
 .btn:hover {
-  @apply border-transparent bg-white/20;
+  @apply shadow-primary/80 border-transparent bg-white/20;
 }
 
 .btn .text {
@@ -108,4 +109,14 @@ html {
 
 .card-p-0 {
   @apply p-0;
+}
+
+/* tags */
+
+.tags {
+  @apply flex flex-wrap gap-2;
+}
+
+.tag {
+  @apply rounded-full bg-white/10 px-3 py-1 text-xs text-white/40;
 }

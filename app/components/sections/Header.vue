@@ -4,12 +4,12 @@ const route = useRoute()
 const isOpen = ref(false)
 const isVisible = ref(route.path !== '/')
 
-const links = [
+const links = reactive([
   { name: 'Главная', href: '/' },
   { name: 'Обо мне', href: '/#about' },
   { name: 'Резюме', href: '/#way' },
-  { name: 'Работы', href: '/#works' },
-]
+  { name: 'Проекты', href: '/projects' },
+])
 
 const { socials } = useAppConfig()
 

@@ -12,6 +12,6 @@
   <!--  -->
   <SectionsWay />
   <!--  -->
-  <!-- <SectionsPortfolio /> -->
+  <SectionsProjects />
   <!--  -->
 </template>

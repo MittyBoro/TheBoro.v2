@@ -1,0 +1,46 @@
+<script setup lang="ts">
+import type { ProjectsCollectionItem } from '@nuxt/content'
+
+const { project } = defineProps<{ project: ProjectsCollectionItem }>()
+
+const projectDate = project?.date ? new Date(project.date) : null
+</script>
+
+<template>
+  <div class="mb-10">
+    <div class="flex items-center gap-2">
+      <!-- назад -->
+      <NuxtLink
+        to="/projects"
+        class="hover:text-primary mr-auto text-sm text-white/40 transition-colors"
+      >
+        ← Все проекты
+      </NuxtLink>
+
+      <NuxtLink v-if="project.demo" :to="project.demo" target="_blank" class="btn btn-sm">
+        <Icon name="mdi:open-in-new" class="mr-2 text-lg" />
+        <span>Demo</span>
+      </NuxtLink>
+
+      <NuxtLink v-if="project.github" :to="project.github" target="_blank" class="btn btn-sm">
+        <Icon name="mdi:github" class="mr-2 text-lg" />
+        <span>GitHub</span>
+      </NuxtLink>
+    </div>
+
+    <!-- title -->
+    <h1 class="first-letter:text-primary mt-6 text-4xl font-black">{{ project?.title }}</h1>
+
+    <!-- date -->
+    <div class="mt-5 flex items-center">
+      <div v-if="projectDate" class="text-sm text-white/40">
+        {{ projectDate }}
+      </div>
+      <div v-if="project.tags" class="tags ml-auto">
+        <span v-for="tag in project.tags" :key="tag" class="tag">
+          {{ tag }}
+        </span>
+      </div>
+    </div>
+  </div>
+</template>
