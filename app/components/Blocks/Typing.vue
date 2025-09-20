@@ -1,26 +1,23 @@
 <script setup lang="ts">
-const { words, cursorClass, rand, typeSpeed, deleteSpeed, holdDelay, pauseBetweenWords } =
-  withDefaults(
-    defineProps<{
-      words: string[]
-      cursorClass?: string
-      prefix?: string
-      rand?: boolean
-      typeSpeed?: number
-      deleteSpeed?: number
-      holdDelay?: number
-      pauseBetweenWords?: number
-    }>(),
-    {
-      cursorClass: '',
-      prefix: '',
-      rand: false,
-      typeSpeed: 70,
-      deleteSpeed: 30,
-      holdDelay: 900,
-      pauseBetweenWords: 300,
-    },
-  )
+const {
+  words,
+  cursorClass = '',
+  prefix = '',
+  rand = false,
+  typeSpeed = 70,
+  deleteSpeed = 30,
+  holdDelay = 900,
+  pauseBetweenWords = 300,
+} = defineProps<{
+  words: string[]
+  cursorClass?: string
+  prefix?: string
+  rand?: boolean
+  typeSpeed?: number
+  deleteSpeed?: number
+  holdDelay?: number
+  pauseBetweenWords?: number
+}>()
 
 const display = ref('')
 const currentWordIndex = ref(0)
