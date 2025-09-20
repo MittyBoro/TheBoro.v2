@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   css: ['@/assets/styles/main.css'],
   app: {
     head: {
@@ -31,7 +31,10 @@ export default defineNuxtConfig({
       subsets: ['cyrillic-ext', 'cyrillic'],
     },
   },
-  modules: ['@nuxt/fonts', '@nuxt/image', '@nuxt/icon'],
+  modules: ['@nuxt/content', '@nuxt/fonts', '@nuxt/image', '@nuxt/icon'],
+  content: {
+    experimental: { nativeSqlite: true },
+  },
   vite: {
     plugins: [tailwindcss()],
   },

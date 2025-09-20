@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <section class="section grid items-center gap-10 md:grid-cols-5">
+  <section id="about" class="section grid items-center gap-10 md:grid-cols-5">
     <!--  -->
     <div class="md:col-span-2">
       <BlocksAvatar />

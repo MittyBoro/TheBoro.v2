@@ -1,8 +1,7 @@
 .prose {
-  max-width: 65ch;
-  color: var(--tw-prose-invert-body);
+  color: var(--tw-prose-body);
 
-  --tw-prose-body: #374151;
+  /* --tw-prose-body: #374151;
   --tw-prose-headings: #111827;
   --tw-prose-lead: #4b5563;
   --tw-prose-links: #111827;
@@ -19,25 +18,25 @@
   --tw-prose-pre-code: #e5e7eb;
   --tw-prose-pre-bg: #1f2937;
   --tw-prose-th-borders: #d1d5db;
-  --tw-prose-td-borders: #e5e7eb;
-  --tw-prose-invert-body: #d1d5db;
-  --tw-prose-invert-headings: #fff;
-  --tw-prose-invert-lead: #9ca3af;
-  --tw-prose-invert-links: #fff;
-  --tw-prose-invert-bold: #fff;
-  --tw-prose-invert-counters: #9ca3af;
-  --tw-prose-invert-bullets: #4b5563;
-  --tw-prose-invert-hr: #374151;
-  --tw-prose-invert-quotes: #f3f4f6;
-  --tw-prose-invert-quote-borders: #374151;
-  --tw-prose-invert-captions: #9ca3af;
-  --tw-prose-invert-kbd: #fff;
-  --tw-prose-invert-kbd-shadows: 255 255 255;
-  --tw-prose-invert-code: #fff;
-  --tw-prose-invert-pre-code: #d1d5db;
-  --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
-  --tw-prose-invert-th-borders: #4b5563;
-  --tw-prose-invert-td-borders: #374151;
+  --tw-prose-td-borders: #e5e7eb; */
+  --tw-prose-body: #d1d5db;
+  --tw-prose-headings: #fff;
+  --tw-prose-lead: #9ca3af;
+  --tw-prose-links: #fff;
+  --tw-prose-bold: #fff;
+  --tw-prose-counters: #9ca3af;
+  --tw-prose-bullets: #4b5563;
+  --tw-prose-hr: #374151;
+  --tw-prose-quotes: #f3f4f6;
+  --tw-prose-quote-borders: #374151;
+  --tw-prose-captions: #9ca3af;
+  --tw-prose-kbd: #fff;
+  --tw-prose-kbd-shadows: 255 255 255;
+  --tw-prose-code: #fff;
+  --tw-prose-pre-code: #d1d5db;
+  --tw-prose-pre-bg: rgb(0 0 0 / 50%);
+  --tw-prose-th-borders: #4b5563;
+  --tw-prose-td-borders: #374151;
 
   font-size: 1rem;
   line-height: 1.75;
@@ -56,15 +55,14 @@
   line-height: 1.6;
 }
 
-.prose :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+.prose :not(h1, h2, h3) :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-links);
-  font-weight: 500;
   text-decoration: underline;
 }
 
 .prose :where(strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-bold);
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .prose :where(a strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -141,7 +139,7 @@
 .prose :where(dt):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 1.25em;
   color: var(--tw-prose-headings);
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .prose :where(hr):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
@@ -156,7 +154,6 @@
   margin-bottom: 1.6em;
   padding-left: 1em;
   color: var(--tw-prose-quotes);
-  font-weight: 500;
   font-style: italic;
   border-left-color: var(--tw-prose-quote-borders);
   border-left-width: 0.25rem;
@@ -181,7 +178,7 @@
   margin-top: 0;
   margin-bottom: 0.8889em;
   color: var(--tw-prose-headings);
-  font-weight: 800;
+  font-weight: 900;
   font-size: 2.25em;
   line-height: 1.111;
 }
@@ -195,35 +192,35 @@
   margin-top: 2em;
   margin-bottom: 1em;
   color: var(--tw-prose-headings);
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1.5em;
   line-height: 1.3333;
 }
 
 .prose :where(h2 strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: inherit;
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .prose :where(h3):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 1.6em;
   margin-bottom: 0.6em;
   color: var(--tw-prose-headings);
-  font-weight: 600;
+  font-weight: 900;
   font-size: 1.25em;
   line-height: 1.6;
 }
 
 .prose :where(h3 strong):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: inherit;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 .prose :where(h4):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   color: var(--tw-prose-headings);
-  font-weight: 600;
+  font-weight: 900;
   line-height: 1.5;
 }
 
@@ -246,7 +243,7 @@
 .prose :where(kbd):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   padding: 0.1875em 0.375em;
   color: var(--tw-prose-kbd);
-  font-weight: 500;
+  font-weight: 900;
   font-size: 0.875em;
   font-family: inherit;
   border-radius: 0.3125rem;
@@ -257,7 +254,7 @@
 
 .prose :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
   color: var(--tw-prose-code);
-  font-weight: 600;
+  font-weight: 900;
   font-size: 0.875em;
 }
 

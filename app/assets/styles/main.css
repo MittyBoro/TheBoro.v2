@@ -19,7 +19,7 @@ html {
 }
 
 .section {
-  @apply relative m-auto w-full pb-60;
+  @apply relative m-auto w-full pt-30 pb-30;
 }
 
 /* Button Styles */

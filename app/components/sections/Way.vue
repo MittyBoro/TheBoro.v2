@@ -22,7 +22,7 @@ const timeline = [
     ],
   },
   {
-    period: '2014 — 2022',
+    period: '2013 — 2022',
     place: '💻 Фриланс',
     items: [
       'Реализация интернет-магазинов, новостных порталов и медиа-платформ.',
@@ -32,7 +32,7 @@ const timeline = [
     ],
   },
   {
-    period: '2010 — 2014',
+    period: '2010 — 2013',
     place: '🌱 Начало пути',
     items: [
       'Первые коммерческие проекты: сайты-визитки и лендинги.',
@@ -48,7 +48,7 @@ const opacityByIndex = (index: number) => {
 </script>
 
 <template>
-  <section class="section">
+  <section id="way" class="section">
     <!--  -->
     <div
       class="absolute left-20 text-[8.5rem] font-black text-black uppercase opacity-30 blur-xs"

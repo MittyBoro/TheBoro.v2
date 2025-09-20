@@ -51,7 +51,7 @@ onUnmounted(() => {
       <!-- Логотип -->
       <NuxtLink
         to="/"
-        class="logo flex items-center space-x-1 font-black text-white/80 transition-colors hover:text-white"
+        class="logo flex items-center space-x-1 text-lg font-black text-white/80 transition-colors hover:text-white"
       >
         <span class="text-primary">The</span>
         Boro.ru
@@ -80,15 +80,15 @@ onUnmounted(() => {
       >
         <span
           class="absolute h-0.5 w-6 bg-current transition-all duration-300"
-          :class="isOpen ? 'translate-y-0 rotate-45' : '-translate-y-2'"
+          :class="isOpen ? 'translate-y-0 rotate-45' : '-translate-y-1'"
         ></span>
-        <span
+        <!-- <span
           class="absolute h-0.5 w-6 bg-current transition-all duration-300"
           :class="isOpen ? 'opacity-0' : 'opacity-100'"
-        ></span>
+        ></span> -->
         <span
           class="absolute h-0.5 w-6 bg-current transition-all duration-300"
-          :class="isOpen ? 'translate-y-0 -rotate-45' : 'translate-y-2'"
+          :class="isOpen ? 'translate-y-0 -rotate-45' : 'translate-y-1'"
         ></span>
       </div>
     </div>
