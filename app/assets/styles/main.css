@@ -5,6 +5,7 @@
 
 @theme {
   --color-primary: #fd213a;
+  --color-current: currentcolor;
   --font-sans: 'Exo 2', sans-serif;
 }
 
@@ -21,8 +22,10 @@ html {
   @apply relative m-auto w-full pb-60;
 }
 
+/* Button Styles */
+
 .btn {
-  @apply flex items-center gap-2 px-5 py-3;
+  @apply flex items-center justify-center gap-2 px-5 py-3;
   @apply text-sm text-white transition;
   @apply rounded-2xl rounded-tr-xs rounded-bl-xs;
   @apply shadow-primary/50 shadow-2xl;
@@ -61,6 +64,8 @@ html {
   @apply border-2 border-white/50 text-white hover:border-white hover:text-white;
 }
 
+/* Card Styles */
+
 .card {
   background: #0009;
   border-radius: 30px 2px;
@@ -71,6 +76,14 @@ html {
 
 .card-sm {
   @apply space-y-2 p-6 text-sm;
+}
+
+.card-lg {
+  @apply p-8;
+}
+
+.card-xl {
+  @apply p-12;
 }
 
 .card-p-0 {

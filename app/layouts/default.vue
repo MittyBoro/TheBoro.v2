@@ -5,9 +5,15 @@
     <!-- Фон -->
     <LayersGridBackground class="fixed inset-0 z-10" />
 
+    <!--  -->
+    <SectionsHeader />
+
     <!-- Контент -->
     <div class="relative z-20 mx-auto flex min-h-screen max-w-7xl flex-col px-6">
       <slot />
+
+      <!--  -->
+      <SectionsFooter class="mt-auto" />
     </div>
   </main>
 </template>
