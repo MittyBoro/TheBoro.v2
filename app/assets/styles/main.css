@@ -27,7 +27,7 @@ html {
 .btn {
   @apply inline-flex items-center justify-center gap-2 px-5 py-3;
   @apply text-sm text-white transition;
-  @apply rounded-2xl rounded-tr-xs rounded-bl-xs;
+  @apply rounded-2xl rounded-tr-lg rounded-bl-lg;
   @apply shadow-primary/50 shadow-2xl;
 
   --tw-shadow: 0 5px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 25%));
@@ -73,10 +73,10 @@ html {
 
 .card {
   background: #0009;
-  border-radius: 30px 2px;
-  backdrop-filter: blur(3px);
+  border-radius: 30px 10px;
+  backdrop-filter: blur(2px);
 
-  @apply shadow-primary/5 border-primary/5 border-2 p-8 shadow-2xl;
+  @apply shadow-primary/5 p-8 shadow-2xl;
 }
 
 .card .-m {
@@ -118,5 +118,7 @@ html {
 }
 
 .tag {
-  @apply rounded-full bg-white/10 px-3 py-1 text-xs text-white/40;
+  @apply bg-white/10 px-3 py-1 text-xs text-white/40;
+
+  border-radius: 12px 6px;
 }

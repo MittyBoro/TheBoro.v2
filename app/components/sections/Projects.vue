@@ -28,9 +28,9 @@ const projects = computed(() => allProjects.value?.slice(0, limit.value) ?? [])
         class="card group flex cursor-pointer flex-col overflow-hidden"
         @click="navigateTo(project.path)"
       >
-        <ProjectsPreview :project="project" class="-m-9 blur-xs" />
+        <ProjectsPreview :project="project" class="-m-9 opacity-80" />
 
-        <div class="relative flex h-full flex-col">
+        <div class="relative -mt-6 flex h-full flex-col">
           <h3
             class="group-hover:text-primary mb-3 text-xl font-semibold text-white transition-colors duration-300"
           >
@@ -42,11 +42,7 @@ const projects = computed(() => allProjects.value?.slice(0, limit.value) ?? [])
           </p>
 
           <div class="tags mt-4">
-            <span
-              v-for="tag in project.tags"
-              :key="tag"
-              class="rounded-full bg-gray-800/60 px-3 py-1 text-xs text-gray-300 transition-colors"
-            >
+            <span v-for="tag in project.tags" :key="tag" class="tag">
               {{ tag }}
             </span>
           </div>

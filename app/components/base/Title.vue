@@ -1,6 +1,15 @@
 <template>
   <h2 class="section__title mb-12 text-4xl font-black">
-    <slot />
+    <div class="relative">
+      <div class="opacity-90">
+        <slot />
+      </div>
+      <div
+        class="absolute top-3 right-0 left-0 opacity-50 transition hover:top-1.5 hover:opacity-10"
+      >
+        <slot />
+      </div>
+    </div>
   </h2>
 </template>
 

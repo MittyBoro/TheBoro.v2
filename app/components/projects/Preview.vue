@@ -11,12 +11,7 @@ const { project } = defineProps<{ project: ProjectsCollectionItem }>()
   >
     <NuxtImg
       :src="project.preview"
-      class="pointer-events-none transition select-none"
-      :alt="`Image for ${project.title}`"
-    />
-    <NuxtImg
-      :src="project.preview"
-      class="absolute top-2.5 opacity-20 blur-[1px] transition-opacity group-hover:opacity-5"
+      class="pointer-events-none blur-[1px] transition select-none"
       :alt="`Image for ${project.title}`"
     />
   </div>

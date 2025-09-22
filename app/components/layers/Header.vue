@@ -2,7 +2,7 @@
 const route = useRoute()
 
 const isOpen = ref(false)
-const isVisible = ref(route.path !== '/')
+const isVisible = useState('header-is-visible', () => route.path !== '/')
 
 const links = reactive([
   { name: 'Главная', href: '/' },
@@ -14,11 +14,15 @@ const links = reactive([
 const { socials } = useAppConfig()
 
 const handleScroll = () => {
-  if (route.path === '/' && !isOpen.value) {
+  if (!isVisible.value && route.path === '/' && !isOpen.value) {
     isVisible.value = window.scrollY > window.innerHeight * 0.75
   } else {
     isVisible.value = true
   }
+}
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 watch(
@@ -41,20 +45,26 @@ onUnmounted(() => {
 <template>
   <!-- Header -->
   <header
-    class="fixed top-0 left-0 z-50 w-full transition-all duration-500"
-    :class="[
-      isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0',
-      'border-b border-white/10 bg-black/60 backdrop-blur',
-    ]"
+    class="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-black/60 backdrop-blur-xs transition-all duration-500"
+    :class="[isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0', '']"
   >
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
       <!-- Логотип -->
       <NuxtLink
         to="/"
-        class="logo flex items-center space-x-1 text-lg font-black text-white/80 transition-colors hover:text-white"
+        class="logo group relative flex items-baseline space-x-1 text-lg font-black text-white/80 transition-colors hover:text-white"
+        @click="scrollToTop"
       >
-        <span class="text-primary">The</span>
-        Boro.ru
+        <span>
+          <span class="text-primary">The</span>
+          Boro.ru
+        </span>
+        <span
+          class="absolute top-2 opacity-70 transition group-hover:top-1.5 group-hover:opacity-10"
+        >
+          <span class="text-primary">The</span>
+          Boro.ru
+        </span>
       </NuxtLink>
 
       <!-- Контакты -->
@@ -138,7 +148,7 @@ onUnmounted(() => {
 .fade-leave-active {
   transition:
     transform 0.4s ease,
-    opacity 0.4s ease;
+    opacity 0.3s ease;
 }
 
 .fade-enter-from,
