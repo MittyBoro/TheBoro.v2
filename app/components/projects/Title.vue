@@ -3,7 +3,13 @@ import type { ProjectsCollectionItem } from '@nuxt/content'
 
 const { project } = defineProps<{ project: ProjectsCollectionItem }>()
 
-const projectDate = project?.date ? new Date(project.date) : null
+const projectDate = project?.date
+  ? new Date(project.date).toLocaleString('ru-RU', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  : null
 </script>
 
 <template>
