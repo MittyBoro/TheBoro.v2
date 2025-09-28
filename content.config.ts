@@ -11,6 +11,7 @@ export default defineContentConfig({
         description: z.string(),
         date: z.coerce.date(),
         published: z.boolean().optional(),
+        hidden: z.boolean().optional(),
         tags: z.array(z.string()).optional(),
         preview: property(z.string()).editor({ input: 'media' }).optional(),
         demo: z.string().url().optional(),

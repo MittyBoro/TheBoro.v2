@@ -23,12 +23,24 @@ const projectDate = project?.date
         ← Все проекты
       </NuxtLink>
 
-      <NuxtLink v-if="project.demo" :to="project.demo" target="_blank" class="btn btn-sm">
+      <NuxtLink
+        v-if="project.demo"
+        :to="project.demo"
+        class="btn btn-sm"
+        target="_blank"
+        rel="nofollow noopener"
+      >
         <Icon name="mdi:open-in-new" class="mr-2 text-lg" />
         <span>Demo</span>
       </NuxtLink>
 
-      <NuxtLink v-if="project.github" :to="project.github" target="_blank" class="btn btn-sm">
+      <NuxtLink
+        v-if="project.github"
+        :to="project.github"
+        class="btn btn-sm"
+        target="_blank"
+        rel="nofollow noopener"
+      >
         <Icon name="mdi:github" class="mr-2 text-lg" />
         <span>GitHub</span>
       </NuxtLink>
