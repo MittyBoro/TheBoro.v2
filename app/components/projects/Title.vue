@@ -7,7 +7,6 @@ const projectDate = project?.date
   ? new Date(project.date).toLocaleString('ru-RU', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric',
     })
   : null
 </script>
@@ -51,7 +50,7 @@ const projectDate = project?.date
 
     <!-- date -->
     <div class="mt-5 flex items-center">
-      <div v-if="projectDate" class="text-sm text-white/40">
+      <div v-if="projectDate" class="text-sm text-white/40 capitalize">
         {{ projectDate }}
       </div>
       <div v-if="project.tags" class="tags ml-auto">

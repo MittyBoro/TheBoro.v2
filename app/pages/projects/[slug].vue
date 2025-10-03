@@ -2,7 +2,7 @@
 const slug = useRoute().params.slug
 
 const { data: project } = await useAsyncData(`projects:${slug}`, () =>
-  queryCollection('projects').path(`/projects/${slug}`).first(),
+  useProjectByPath(slug as string),
 )
 
 if (!project.value || (!project.value.published && !import.meta.dev)) {

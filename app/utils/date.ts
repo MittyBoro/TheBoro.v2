@@ -22,7 +22,7 @@ export function yearsWithEmoji(dateString: string, suffix: string = 'y.') {
   const diff = date - today
 
   let emoji = ''
-  if (diff > 0 && diff < 7) {
+  if (diff > 0 && diff < 3) {
     emoji = '🎉'
   }
 

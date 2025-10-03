@@ -10,11 +10,11 @@ const { socials } = useAppConfig()
         v-for="social in socials"
         :key="social.name"
         :to="social.link"
-        class="btn aspect-square"
+        class="btn btn-square"
         target="_blank"
         rel="noopener"
       >
-        <Icon :name="social.icon" class="icon text-xl" />
+        <Icon :name="social.icon" class="icon" />
       </NuxtLink>
     </div>
     <div class="text-center text-xs">

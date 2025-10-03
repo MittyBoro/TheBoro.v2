@@ -66,7 +66,15 @@ html {
 }
 
 .btn-outline {
-  @apply border-2 border-white/50 text-white hover:border-white hover:text-white;
+  @apply bg-white/5 ring-1 ring-white/10;
+}
+
+.btn-square {
+  @apply aspect-square p-3;
+}
+
+.btn-square .icon {
+  @apply text-xl;
 }
 
 /* Card Styles */
@@ -118,7 +126,12 @@ html {
 }
 
 .tag {
-  @apply bg-white/10 px-3 py-1 text-xs text-white/40;
+  @apply relative overflow-hidden px-3 py-1 text-xs;
+  @apply bg-white/5 ring-1 ring-white/10;
 
   border-radius: 12px 6px;
+}
+
+.tag.--dark {
+  @apply bg-black/30 ring-1;
 }
