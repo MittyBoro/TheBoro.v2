@@ -9,7 +9,9 @@ const { project } = defineProps<{ project: ProjectsCollectionItem }>()
     class="card group relative flex cursor-pointer flex-col overflow-hidden"
     @click="navigateTo(project.path)"
   >
-    <ProjectsPreview :project="project" class="-m-9 opacity-80" />
+    <div class="relative">
+      <ProjectsPreview :project="project" class="-m-9 opacity-80" />
+    </div>
 
     <div class="tags absolute top-3 right-3 max-w-80 justify-end">
       <span v-for="tag in project.tags" :key="tag" class="tag --dark">

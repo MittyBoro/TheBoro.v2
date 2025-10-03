@@ -11,8 +11,10 @@ const { project } = defineProps<{ project: ProjectsCollectionItem }>()
   >
     <NuxtImg
       :src="project.preview"
-      class="pointer-events-none blur-[1px] transition select-none"
+      class="pointer-events-none transition select-none"
       :alt="`Image for ${project.title}`"
     />
+    <div class="absolute inset-0 bg-black/20 mix-blend-hue"></div>
+    <div class="bg-primary/30 absolute inset-0 mix-blend-hue"></div>
   </div>
 </template>
