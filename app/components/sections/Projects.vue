@@ -22,8 +22,10 @@ const { data: allTags } = await useAsyncData<any>(
   { watch: [limit, showHiddenProjects, currentTag] },
 )
 
-const { data: projectsCount } = await useAsyncData<number>('projects:count', () =>
-  useProjects().getCount(),
+const { data: projectsCount } = await useAsyncData<number>(
+  'projects:count',
+  () => useProjects().getCount(),
+  { watch: [showHiddenProjects, currentTag] },
 )
 
 // «заморозить» геометрию карточки перед удалением
@@ -87,9 +89,9 @@ const freezeLeaving = (el: Element) => {
     >
       <ProjectsCard v-for="project in projects" :key="project.path" :project="project" />
 
-      <div v-if="(projectsCount ?? 0) > limit" class="col-span-full text-center">
-        <NuxtLink v-if="!loadMore" to="/projects" class="btn">Все проекты</NuxtLink>
-        <button v-else @click="limit += 6" class="btn">Показать еще</button>
+      <div v-if="(projectsCount ?? 0) > limit" class="text-center md:col-span-1 md:col-start-2">
+        <NuxtLink v-if="!loadMore" to="/projects" class="btn w-full">Все проекты</NuxtLink>
+        <button v-else @click="limit += 6" class="btn w-full">Показать еще</button>
       </div>
     </TransitionGroup>
 
