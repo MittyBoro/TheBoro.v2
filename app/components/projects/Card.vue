@@ -10,11 +10,14 @@ const { project } = defineProps<{ project: ProjectsCollectionItem }>()
     @click="navigateTo(project.path)"
   >
     <div class="relative">
-      <ProjectsPreview :project="project" class="-m-9 opacity-80" />
+      <ProjectsPreview
+        :project="project"
+        class="-m-9 opacity-50 blur-[2px] transition group-hover:opacity-80 group-hover:blur-[1px]"
+      />
     </div>
 
     <div class="tags absolute top-3 right-3 max-w-80 justify-end">
-      <span v-for="tag in project.tags" :key="tag" class="tag --dark">
+      <span v-for="tag in project.tags?.slice(0, 3)" :key="tag" class="tag --dark">
         {{ tag }}
       </span>
     </div>

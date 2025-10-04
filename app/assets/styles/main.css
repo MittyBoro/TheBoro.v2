@@ -38,7 +38,7 @@ html {
 }
 
 .btn-sm {
-  @apply gap-0.5 px-4 py-2 text-xs;
+  @apply gap-1.5 px-4 py-2 text-xs;
 }
 
 .btn:hover {
@@ -80,7 +80,7 @@ html {
 /* Card Styles */
 
 .card {
-  background: #0009;
+  background: #000b;
   border-radius: 30px 10px;
   backdrop-filter: blur(2px);
 
@@ -127,9 +127,13 @@ html {
 
 .tag {
   @apply relative overflow-hidden px-3 py-1 text-xs;
-  @apply bg-white/5 ring-1 ring-white/10;
+  @apply bg-white/5 ring-1 ring-white/10 transition;
 
   border-radius: 12px 6px;
+}
+
+.tag.--active {
+  @apply bg-white/10 ring-3;
 }
 
 .tag.--dark {

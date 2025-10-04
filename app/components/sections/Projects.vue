@@ -3,17 +3,27 @@ const { loadMore = false } = defineProps<{
   loadMore?: boolean
 }>()
 
-const limit = ref(6)
+const route = useRoute()
+
+const limit = ref(loadMore ? 12 : 6)
 const showHiddenProjects = useCookie<number | null>('show_hidden_projects')
+
+const currentTag = computed(() => (typeof route.query.tag === 'string' ? route.query.tag : ''))
 
 const { data: projects } = await useAsyncData<any>(
   () => `projects:list:${limit.value}`,
-  () => useProjectList(limit.value),
-  { watch: [limit, showHiddenProjects] },
+  () => useProjects().getList(limit.value),
+  { watch: [limit, showHiddenProjects, currentTag] },
+)
+
+const { data: allTags } = await useAsyncData<any>(
+  () => `projects:tags`,
+  () => useProjects().getAllTags(),
+  { watch: [limit, showHiddenProjects, currentTag] },
 )
 
 const { data: projectsCount } = await useAsyncData<number>('projects:count', () =>
-  useProjectCount(),
+  useProjects().getCount(),
 )
 
 // «заморозить» геометрию карточки перед удалением
@@ -37,14 +47,33 @@ const freezeLeaving = (el: Element) => {
 
 <template>
   <section id="projects" class="section">
-    <div class="grid gap-10 md:grid-cols-5">
-      <div class="md:col-span-3 md:col-start-3">
-        <div class="relative flex items-baseline gap-3">
-          <BaseTitle class="">
+    <div class="grid gap-10">
+      <div
+        class="relative flex items-baseline gap-3"
+        :class="{ 'md:col-span-3 md:col-start-3': !loadMore }"
+      >
+        <BaseTitle>
+          <NuxtLink to="/projects">
             <span class="text-primary">My </span>
             <span>projects</span>
-          </BaseTitle>
-          <ProjectsUnlockAll />
+          </NuxtLink>
+        </BaseTitle>
+        <ProjectsUnlockAll v-if="loadMore" />
+        <NuxtLink v-else to="/projects" class="btn btn-sm">Все проекты</NuxtLink>
+
+        <div
+          v-if="allTags?.length && loadMore"
+          class="tags mb-12 ml-auto max-w-xl flex-wrap md:justify-end"
+        >
+          <NuxtLink
+            v-for="tag in allTags"
+            :key="tag"
+            :to="'/projects' + (tag !== currentTag ? `?tag=${tag}` : '')"
+            class="tag"
+            :class="{ '--active': tag === currentTag }"
+          >
+            {{ tag }}
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -53,7 +82,7 @@ const freezeLeaving = (el: Element) => {
       v-if="projects?.length"
       name="list"
       tag="div"
-      class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+      class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3"
       @before-leave="freezeLeaving"
     >
       <ProjectsCard v-for="project in projects" :key="project.path" :project="project" />

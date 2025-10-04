@@ -1,28 +1,56 @@
-export function useProjectQuery() {
-  const showHiddenProjects = useCookie<number | null>('show_hidden_projects')
+export const useProjects = () => ({
+  query(checkTag: boolean = true) {
+    const route = useRoute()
+    const showHiddenProjects = useCookie<number | null>('show_hidden_projects')
 
-  let query = queryCollection('projects').where('published', '=', true)
-  if (showHiddenProjects.value !== 2) {
-    query = query.orWhere((q) => q.where('hidden', 'IS NULL').where('hidden', '=', false))
-  }
+    let query = queryCollection('projects').where('published', '=', true)
+    if (showHiddenProjects.value !== 2) {
+      query = query.orWhere((q) => q.where('hidden', 'IS NULL').where('hidden', '=', false))
+    }
+    if (route.query.tag && checkTag) {
+      query = query.where('tags', 'LIKE', `%${route.query.tag}%`)
+    }
 
-  return query
-}
+    return query
+  },
 
-export function useProjectListQuery() {
-  return useProjectQuery()
-    .select('title', 'description', 'tags', 'path', 'date', 'published', 'hidden', 'preview')
-    .order('date', 'DESC')
-}
+  listQuery() {
+    return this.query()
+      .select('title', 'description', 'tags', 'path', 'date', 'published', 'hidden', 'preview')
+      .order('date', 'DESC')
+  },
 
-export async function useProjectList(limit: number = 6) {
-  return await useProjectListQuery().limit(limit).all()
-}
+  async getList(limit: number = 6, tag?: string) {
+    let query = this.listQuery().limit(limit)
+    if (tag) {
+      query = query.where('tags', 'LIKE', `%${tag}%`)
+    }
+    return await query.all()
+  },
 
-export async function useProjectByPath(path: string) {
-  return await useProjectQuery().path(`/projects/${path}`).first()
-}
+  async getByPath(path: string) {
+    return await this.query().path(`/projects/${path}`).first()
+  },
 
-export async function useProjectCount() {
-  return <number>await useProjectQuery().count()
-}
+  async getCount() {
+    return <number>await this.query().count()
+  },
+
+  async getAllTags() {
+    // с сортировкой по количеству использований тэгов
+    return await this.query(false)
+      .select('tags')
+      .all()
+      .then((items) => {
+        const tags = items.flatMap((item) => item.tags || [])
+        const tagCount: Record<string, number> = {}
+        tags.forEach((tag) => {
+          tagCount[tag] = (tagCount[tag] || 0) + 1
+        })
+        return Object.entries(tagCount)
+          .sort(([, a], [, b]) => b - a)
+          .map(([tag]) => tag)
+          .filter((tag) => (tagCount[tag] ?? 0) > 3)
+      })
+  },
+})

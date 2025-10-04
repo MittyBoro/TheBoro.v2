@@ -2,7 +2,7 @@
 const slug = useRoute().params.slug
 
 const { data: project } = await useAsyncData(`projects:${slug}`, () =>
-  useProjectByPath(slug as string),
+  useProjects().getByPath(slug as string),
 )
 
 if (!project.value || (!project.value.published && !import.meta.dev)) {
