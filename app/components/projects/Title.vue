@@ -29,7 +29,7 @@ const projectDate = project?.date
         target="_blank"
         rel="nofollow noopener"
       >
-        <Icon name="mdi:open-in-new" class="mr-2 text-lg" />
+        <Icon name="mdi:open-in-new" class="text-lg" />
         <span>Demo</span>
       </NuxtLink>
 
@@ -40,7 +40,7 @@ const projectDate = project?.date
         target="_blank"
         rel="nofollow noopener"
       >
-        <Icon name="mdi:github" class="mr-2 text-lg" />
+        <Icon name="mdi:github" class="text-lg" />
         <span>GitHub</span>
       </NuxtLink>
     </div>
@@ -54,9 +54,9 @@ const projectDate = project?.date
         {{ projectDate }}
       </div>
       <div v-if="project.tags" class="tags ml-auto">
-        <span v-for="tag in project.tags" :key="tag" class="tag">
+        <NuxtLink v-for="tag in project.tags" :to="`/projects?tags=${tag}`" :key="tag" class="tag">
           {{ tag }}
-        </span>
+        </NuxtLink>
       </div>
     </div>
   </div>

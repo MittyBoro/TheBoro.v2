@@ -53,4 +53,18 @@ export const useProjects = () => ({
           .filter((tag) => (tagCount[tag] ?? 0) > 3)
       })
   },
+
+  async getSimilarByTags(tags: string[], excludePath: string | undefined, limit: number = 3) {
+    let query = this.listQuery()
+      .limit(limit)
+      .where('path', '<>', excludePath)
+      .orWhere((q) => {
+        tags.forEach((tag) => {
+          q.where('tags', 'LIKE', `%${tag}%`)
+        })
+        return q
+      })
+
+    return await query.all()
+  },
 })

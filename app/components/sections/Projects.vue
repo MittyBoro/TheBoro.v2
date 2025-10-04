@@ -10,7 +10,7 @@ const showHiddenProjects = useCookie<number | null>('show_hidden_projects')
 
 const currentTag = computed(() => (typeof route.query.tag === 'string' ? route.query.tag : ''))
 
-const { data: projects } = await useAsyncData<any>(
+const { data: projects } = await useAsyncData<any[]>(
   () => `projects:list:${limit.value}`,
   () => useProjects().getList(limit.value),
   { watch: [limit, showHiddenProjects, currentTag] },

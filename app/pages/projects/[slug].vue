@@ -8,19 +8,34 @@ const { data: project } = await useAsyncData(`projects:${slug}`, () =>
 if (!project.value || (!project.value.published && !import.meta.dev)) {
   throw createError({ statusCode: 404, statusMessage: 'Not Found' })
 }
+const similar = <any>(
+  await useProjects().getSimilarByTags(project.value?.tags ?? [], project.value?.path, 6)
+)
 </script>
 
 <template>
-  <article v-if="project" class="group card card-xl mx-auto mt-20 max-w-4xl overflow-hidden">
-    <!-- Preview -->
-    <ProjectsPreview :project="project" class="-m-12" />
+  <div class="max-w-4xl">
+    <article v-if="project" class="group card card-xl mx-auto mt-20 max-w-4xl overflow-hidden">
+      <!-- Preview -->
+      <ProjectsPreview :project="project" class="-m-12" />
 
-    <!-- Content -->
-    <div class="relative" :class="project.preview ? '-mt-20' : 'mt-0'">
-      <!-- Title -->
-      <ProjectsTitle :project="project" />
       <!-- Content -->
-      <ContentRenderer class="prose prose-invert" :value="project" />
+      <div class="relative" :class="project.preview ? '-mt-20' : 'mt-0'">
+        <!-- Title -->
+        <ProjectsTitle :project="project" />
+
+        <!-- Content -->
+        <ContentRenderer class="prose prose-invert" :value="project" />
+      </div>
+    </article>
+
+    <!-- Similar Projects -->
+    <BaseTitle class="mt-32 text-center">
+      <span class="text-primary">Similar </span>
+      <span>projects</span>
+    </BaseTitle>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ProjectsCard v-for="project in similar" :key="project.path" :project="project" mini />
     </div>
-  </article>
+  </div>
 </template>
