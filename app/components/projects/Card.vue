@@ -19,15 +19,15 @@ const { project } = defineProps<{ project: ProjectsCollectionItem }>()
       </span>
     </div>
 
-    <div class="relative -mt-6">
+    <div class="relative -mt-10">
       <div>
         <h3
-          class="group-hover:text-primary mb-3 line-clamp-2 text-xl font-semibold text-white transition-colors duration-300"
+          class="group-hover:text-primary mb-3 line-clamp-2 text-xl leading-tight font-semibold text-white transition-colors duration-300"
         >
           <a :href="project.path">{{ project.title }}</a>
         </h3>
 
-        <p class="text-white-60 mb-auto line-clamp-3 flex-1 text-sm">
+        <p class="text-white-60 mb-auto line-clamp-3 flex-1 text-sm text-white/80">
           {{ project.description }}
         </p>
       </div>
