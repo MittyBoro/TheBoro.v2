@@ -16,7 +16,7 @@ const { project } = defineProps<{ project: ProjectsCollectionItem }>()
       sizes="100vw md:390px"
       :imgAttrs="{
         loading: 'lazy',
-        class: 'pointer-events-none w-full transition select-none',
+        class: 'pointer-events-none w-full transition select-none aspect-[16/9] ',
         alt: `Image for ${project.title}`,
       }"
     />
