@@ -3,7 +3,9 @@ const { socials } = useAppConfig()
 </script>
 
 <template>
-  <section class="hero relative mb-30 grid min-h-[95vh] items-center gap-10 py-30 md:grid-cols-5">
+  <section
+    class="hero relative mb-0 grid min-h-[95vh] items-center gap-10 py-30 md:grid-cols-5 xl:mb-30"
+  >
     <!--  -->
     <div class="flex flex-col justify-center md:col-span-3">
       <!--  -->

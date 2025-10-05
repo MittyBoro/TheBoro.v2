@@ -13,16 +13,16 @@ export default defineAppConfig({
       title: 'LinkedIn',
     },
     {
-      name: 'instagram',
-      link: 'https://www.instagram.com/mittyboro/',
-      icon: 'mdi:instagram',
-      title: 'Instagram',
-    },
-    {
       name: 'telegram',
       link: 'https://t.me/mittyboro',
       icon: 'mdi:telegram',
       title: 'Telegram',
+    },
+    {
+      name: 'instagram',
+      link: 'https://www.instagram.com/mittyboro/',
+      icon: 'mdi:instagram',
+      title: 'Instagram',
     },
     {
       name: 'email',

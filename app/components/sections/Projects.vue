@@ -49,10 +49,10 @@ const freezeLeaving = (el: Element) => {
 
 <template>
   <section id="projects" class="section">
-    <div class="grid gap-10">
+    <div class="grid gap-10" :class="{ 'lg:grid-cols-5': !loadMore }">
       <div
         class="relative flex items-baseline gap-3"
-        :class="{ 'md:col-span-3 md:col-start-3': !loadMore }"
+        :class="{ 'lg:col-span-3 lg:col-start-3': !loadMore }"
       >
         <BaseTitle>
           <NuxtLink to="/projects">
@@ -89,9 +89,12 @@ const freezeLeaving = (el: Element) => {
     >
       <ProjectsCard v-for="project in projects" :key="project.path" :project="project" />
 
-      <div v-if="(projectsCount ?? 0) > limit" class="text-center md:col-span-1 md:col-start-2">
-        <NuxtLink v-if="!loadMore" to="/projects" class="btn w-full">Все проекты</NuxtLink>
-        <button v-else @click="limit += 6" class="btn w-full">Показать еще</button>
+      <div
+        v-if="(projectsCount ?? 0) > limit"
+        class="col-span-full text-center lg:col-span-1 lg:col-start-2"
+      >
+        <NuxtLink v-if="!loadMore" to="/projects" class="btn w-full max-w-80">Все проекты</NuxtLink>
+        <button v-else @click="limit += 6" class="btn w-full max-w-80">Показать еще</button>
       </div>
     </TransitionGroup>
 

@@ -1,11 +1,11 @@
 <template>
-  <h2 class="section__title mb-12 text-4xl font-black">
+  <h2 class="group/title section__title mb-12 text-4xl font-black">
     <div class="relative">
       <div class="opacity-90">
         <slot />
       </div>
       <div
-        class="absolute top-3 right-0 left-0 opacity-50 transition hover:top-1.5 hover:opacity-10"
+        class="pointer-events-none absolute top-3 right-0 left-0 opacity-50 transition group-hover/title:top-1.5 group-hover/title:opacity-10"
       >
         <slot />
       </div>

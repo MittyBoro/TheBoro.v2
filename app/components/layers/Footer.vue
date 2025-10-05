@@ -3,7 +3,7 @@ const { socials } = useAppConfig()
 </script>
 
 <template>
-  <footer class="pt-24 pb-16 text-center text-xs text-white/70">
+  <footer class="pt-16 pb-16 text-center text-xs text-white/70 lg:pt-24">
     <!--  -->
     <div class="mb-12 flex flex-wrap justify-center gap-4">
       <NuxtLink

@@ -58,20 +58,20 @@ const stack = [
     </div>
 
     <!--  -->
-    <div class="relative grid gap-10 md:grid-cols-5">
-      <BaseTitle class="md:col-span-3 md:col-start-3">
+    <div class="relative grid gap-10 lg:grid-cols-5">
+      <BaseTitle class="text-center lg:col-span-3 lg:col-start-3 lg:text-left">
         <span class="text-primary">Stack & </span>
         <span>Tools</span>
       </BaseTitle>
     </div>
     <ul class="space-y-12">
       <li
-        class="grid space-y-12 gap-x-6 md:grid-cols-5"
+        class="grid space-y-12 gap-x-6 gap-y-4 lg:grid-cols-5 lg:gap-y-0"
         v-for="(group, index) in stack"
         :key="index"
       >
         <!-- Заголовок категории (как даты в MyWay) -->
-        <div class="col-span-2 my-auto">
+        <div class="my-auto lg:col-span-2">
           <h3
             class="text-right text-lg font-semibold tracking-wide text-gray-300 uppercase md:pr-10"
           >

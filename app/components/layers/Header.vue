@@ -111,7 +111,7 @@ onUnmounted(() => {
       class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-black/90 text-white backdrop-blur-sm"
     >
       <!-- Навигация -->
-      <nav class="space-y-8 text-center text-3xl font-black">
+      <nav class="space-y-4 text-center text-xl font-black xl:space-y-8 xl:text-3xl">
         <NuxtLink
           v-for="link in links"
           :key="link.href"
@@ -125,7 +125,7 @@ onUnmounted(() => {
       </nav>
 
       <!-- Контакты -->
-      <nav class="mt-20 grid grid-cols-4 gap-4">
+      <nav class="mt-12 flex grid-cols-4 flex-wrap gap-4 xl:mt-20 xl:grid">
         <NuxtLink
           v-for="(social, index) in socials"
           :key="social.name"
