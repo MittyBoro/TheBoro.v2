@@ -26,6 +26,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  content: {
+    experimental: { nativeSqlite: true },
+  },
   fonts: {
     defaults: {
       weights: [400, 900],
@@ -33,9 +36,7 @@ export default defineNuxtConfig({
     },
   },
   modules: ['@nuxt/content', '@nuxt/fonts', '@nuxt/image', '@nuxt/icon'],
-  content: {
-    experimental: { nativeSqlite: true },
-  },
+  ssr: true,
   vite: {
     plugins: [tailwindcss()],
   },

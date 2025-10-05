@@ -17,7 +17,7 @@ const projectDate = project?.date
       <!-- назад -->
       <NuxtLink
         to="/projects"
-        class="hover:text-primary mr-auto text-sm text-white/40 transition-colors"
+        class="hover:text-primary mr-auto text-sm text-white/70 transition-colors"
       >
         ← Все проекты
       </NuxtLink>
@@ -52,10 +52,10 @@ const projectDate = project?.date
 
     <!-- date -->
     <div class="mt-5 grid items-center gap-y-6 md:flex">
-      <div v-if="projectDate" class="text-sm text-white/40 capitalize">
+      <div v-if="projectDate" class="text-sm whitespace-nowrap text-white/40 capitalize">
         {{ projectDate }}
       </div>
-      <div v-if="project.tags" class="tags ml-auto">
+      <div v-if="project.tags" class="tags md:ml-auto md:max-w-100 md:justify-end">
         <NuxtLink v-for="tag in project.tags" :to="`/projects?tag=${tag}`" :key="tag" class="tag">
           {{ tag }}
         </NuxtLink>
