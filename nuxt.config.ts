@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/main.css'],
   app: {
     head: {
-      title: 'Дмитрий Бородин | Full Stack разработчик ',
+      title: 'Дмитрий Бородин | Full Stack разработчик',
       meta: [
         {
           name: 'viewport',
@@ -22,6 +22,7 @@ export default defineNuxtConfig({
           name: 'theme-color',
           content: '#000',
         },
+        { name: 'author', content: 'Dmitrii Borodin' },
       ],
     },
   },
