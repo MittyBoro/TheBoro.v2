@@ -11,6 +11,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: #000;
 }
 
 ::selection {
@@ -25,7 +26,8 @@ html {
 /* Button Styles */
 
 .btn {
-  @apply inline-flex items-center justify-center gap-2 px-5 py-3;
+  @apply inline-flex items-center justify-center gap-2 md:px-5 md:py-3;
+  @apply px-4 py-2;
   @apply text-sm text-white transition;
   @apply rounded-2xl rounded-tr-lg rounded-bl-lg;
   @apply shadow-primary/50 shadow-2xl;
@@ -84,7 +86,7 @@ html {
   border-radius: 30px 10px;
   backdrop-filter: blur(2px);
 
-  @apply shadow-primary/5 overflow-hidden p-8 shadow-2xl;
+  @apply shadow-primary/5 overflow-hidden p-6 shadow-2xl md:p-8;
 }
 
 .card .-m {
@@ -92,7 +94,7 @@ html {
 }
 
 .card-sm {
-  @apply space-y-2 p-6 text-sm;
+  @apply space-y-2 p-4 text-xs md:p-6 md:text-sm;
 }
 
 .card-sm .-m {
@@ -108,7 +110,7 @@ html {
 }
 
 .card-xl {
-  @apply p-12;
+  @apply p-4 md:p-12;
 }
 
 .card-xl .-m {

@@ -10,7 +10,7 @@
     <!--  -->
     <div class="md:col-span-3">
       <!--  -->
-      <BaseTitle>
+      <BaseTitle class="text-center md:text-left">
         <span class="text-primary">About </span>
         <span>me</span>
       </BaseTitle>

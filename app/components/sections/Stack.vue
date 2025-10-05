@@ -66,21 +66,21 @@ const stack = [
     </div>
     <ul class="space-y-12">
       <li
-        class="grid space-y-12 gap-x-6 gap-y-4 lg:grid-cols-5 lg:gap-y-0"
+        class="grid gap-x-6 gap-y-4 lg:grid-cols-5 lg:gap-y-12"
         v-for="(group, index) in stack"
         :key="index"
       >
-        <!-- Заголовок категории (как даты в MyWay) -->
-        <div class="my-auto lg:col-span-2">
+        <!-- Заголовок категории -->
+        <div class="my-auto text-center lg:col-span-2">
           <h3
-            class="text-right text-lg font-semibold tracking-wide text-gray-300 uppercase md:pr-10"
+            class="w-full text-center text-lg font-semibold tracking-wide text-gray-300 uppercase md:pr-10 lg:text-right"
           >
             {{ group.category }}
           </h3>
         </div>
 
         <!-- Иконки -->
-        <div class="col-span-3 grid grid-cols-5 gap-4 md:grid-cols-6">
+        <div class="grid grid-cols-3 gap-4 md:grid-cols-6 lg:col-span-3">
           <div
             v-for="item in group.items"
             :key="item.name"

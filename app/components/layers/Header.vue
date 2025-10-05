@@ -52,7 +52,7 @@ onUnmounted(() => {
       <!-- Логотип -->
       <NuxtLink
         to="/"
-        class="logo group relative flex items-baseline space-x-1 text-lg font-black text-white/80 transition-colors hover:text-white"
+        class="logo group relative flex -translate-y-0.5 items-baseline space-x-1 text-lg font-black text-white/80 transition-colors hover:text-white"
         @click="scrollToTop"
       >
         <span>
@@ -60,7 +60,7 @@ onUnmounted(() => {
           Boro.ru
         </span>
         <span
-          class="absolute top-2 opacity-70 transition group-hover:top-1.5 group-hover:opacity-10"
+          class="pointer-events-none absolute top-2 opacity-70 transition group-hover:top-1.5 group-hover:opacity-10"
         >
           <span class="text-primary">The</span>
           Boro.ru
@@ -68,14 +68,14 @@ onUnmounted(() => {
       </NuxtLink>
 
       <!-- Контакты -->
-      <div class="mr-8 ml-auto flex items-center gap-4">
+      <div class="mr-4 ml-auto flex items-center gap-2 md:mr-8 md:gap-4">
         <NuxtLink
-          v-for="social in socials"
+          v-for="social in socials.slice(0, 4)"
           :key="social.name"
           :to="social.link"
           target="_blank"
           rel="noopener"
-          class="hover:text-primary flex items-center text-xl text-white/50 transition-colors"
+          class="hover:text-primary flex items-center text-lg text-white/50 transition-colors md:text-xl"
           :title="social.title"
         >
           <Icon :name="social.icon" />
@@ -108,7 +108,7 @@ onUnmounted(() => {
   <transition name="fade">
     <div
       v-if="isOpen"
-      class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-black/90 text-white backdrop-blur-sm"
+      class="fixed inset-0 z-40 flex flex-col items-center justify-center bg-black/90 px-4 text-white backdrop-blur-sm"
     >
       <!-- Навигация -->
       <nav class="space-y-4 text-center text-xl font-black xl:space-y-8 xl:text-3xl">
@@ -125,7 +125,7 @@ onUnmounted(() => {
       </nav>
 
       <!-- Контакты -->
-      <nav class="mt-12 flex grid-cols-4 flex-wrap gap-4 xl:mt-20 xl:grid">
+      <nav class="mt-12 flex grid-cols-4 flex-wrap justify-center gap-4 xl:mt-20 xl:grid">
         <NuxtLink
           v-for="(social, index) in socials"
           :key="social.name"

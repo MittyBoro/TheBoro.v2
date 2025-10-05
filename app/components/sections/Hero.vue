@@ -4,10 +4,12 @@ const { socials } = useAppConfig()
 
 <template>
   <section
-    class="hero relative mb-0 grid min-h-[95vh] items-center gap-10 py-30 md:grid-cols-5 xl:mb-30"
+    class="hero relative mb-0 grid min-h-[95vh] items-center gap-10 pt-40 pb-30 md:grid-cols-5 md:pt-30 xl:mb-30"
   >
     <!--  -->
-    <div class="flex flex-col justify-center md:col-span-3">
+    <div
+      class="flex flex-col items-center justify-center text-center md:col-span-3 md:items-start md:text-left"
+    >
       <!--  -->
       <div class="mb-6 text-xl">
         Привет, я
@@ -33,11 +35,11 @@ const { socials } = useAppConfig()
 
       <!--  -->
       <div class="mb-10 max-w-lg text-xl text-white/90">
-        Создаю веб-приложения, которые помогают бизнесу и клиентам.
+        Создаю веб-приложения, которые помогают бизнесу и клиентам
       </div>
 
       <!--  -->
-      <div class="flex flex-wrap gap-4">
+      <div class="flex flex-wrap justify-center gap-4 md:justify-start">
         <NuxtLink
           v-for="social in socials"
           :key="social.name"
@@ -53,7 +55,7 @@ const { socials } = useAppConfig()
     </div>
 
     <!--  -->
-    <div class="flex justify-center md:col-span-2">
+    <div class="mb-10 flex justify-center md:col-span-2 md:mb-0">
       <BlocksCodeInfo />
     </div>
 
@@ -61,14 +63,5 @@ const { socials } = useAppConfig()
     <div class="pointer-events-none absolute bottom-0 w-full">
       <BlocksScrollDown />
     </div>
-
-    <BlocksTyping
-      class="fixed bottom-[5vw] left-1/2 -z-1 w-[2em] -translate-x-1/2 text-[10rem] font-black text-black uppercase opacity-30 blur-sm"
-      prefix="›:"
-      :words="['4', '8', '15', '16', '23', '42']"
-      :typeSpeed="150"
-      :deleteSpeed="80"
-      :holdDelay="1200"
-    />
   </section>
 </template>

@@ -57,7 +57,7 @@ const opacityByIndex = (index: number) => {
       experience
     </div>
     <!--  -->
-    <div class="relative grid gap-10 md:grid-cols-5">
+    <div class="relative grid gap-10 text-center md:grid-cols-5 md:text-left">
       <BaseTitle class="md:col-span-3 md:col-start-3">
         <span>My </span>
         <span class="text-primary">way</span>
@@ -67,13 +67,13 @@ const opacityByIndex = (index: number) => {
       <li
         v-for="(block, index) in timeline"
         :key="index"
-        class="group relative grid gap-10 md:grid-cols-5"
+        class="group relative grid gap-x-10 gap-y-2 md:grid-cols-5"
         :style="{ opacity: opacityByIndex(index) }"
       >
-        <div class="relative mt-1 md:col-span-2">
-          <div class="flex items-center justify-end gap-10">
+        <div class="mt-1 md:relative md:col-span-2">
+          <div class="flex items-center gap-4 md:justify-end md:gap-10">
             <!-- Период -->
-            <span class="text-white/50 transition-colors group-hover:text-white">
+            <span class="order-2 text-white/50 transition-colors group-hover:text-white md:order-0">
               {{ block.period }}
             </span>
 
@@ -85,12 +85,12 @@ const opacityByIndex = (index: number) => {
           <!-- Линия -->
           <span
             v-if="index < timeline.length - 1"
-            class="from-primary/30 to-primary/20 absolute top-3 right-[5px] -bottom-14 w-0.5 bg-gradient-to-b"
+            class="from-primary/30 to-primary/20 absolute top-3 -bottom-14 left-[5px] w-0.5 bg-gradient-to-b md:right-[5px] md:left-auto"
           ></span>
         </div>
 
         <!-- Контент -->
-        <div class="relative md:col-span-3">
+        <div class="relative pl-7 md:col-span-3 md:pl-0">
           <h3 class="mb-4 text-xl font-black text-white/90">
             {{ block.place }}
           </h3>

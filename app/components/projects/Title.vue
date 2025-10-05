@@ -46,10 +46,12 @@ const projectDate = project?.date
     </div>
 
     <!-- title -->
-    <h1 class="first-letter:text-primary mt-6 text-4xl font-black">{{ project?.title }}</h1>
+    <h1 class="first-letter:text-primary mt-6 text-2xl font-black md:text-4xl">
+      {{ project?.title }}
+    </h1>
 
     <!-- date -->
-    <div class="mt-5 flex items-center">
+    <div class="mt-5 grid items-center gap-y-6 md:flex">
       <div v-if="projectDate" class="text-sm text-white/40 capitalize">
         {{ projectDate }}
       </div>

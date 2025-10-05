@@ -51,21 +51,26 @@ const freezeLeaving = (el: Element) => {
   <section id="projects" class="section">
     <div class="grid gap-10" :class="{ 'lg:grid-cols-5': !loadMore }">
       <div
-        class="relative flex items-baseline gap-3"
+        class="relative flex flex-col items-center md:flex-row md:items-baseline md:gap-3"
         :class="{ 'lg:col-span-3 lg:col-start-3': !loadMore }"
       >
+        <!-- заголовок -->
         <BaseTitle>
           <NuxtLink to="/projects">
             <span class="text-primary">My </span>
             <span>projects</span>
           </NuxtLink>
         </BaseTitle>
-        <ProjectsUnlockAll v-if="loadMore" />
-        <NuxtLink v-else to="/projects" class="btn btn-sm">Все проекты</NuxtLink>
+        <!-- кнопка -->
+        <div class="-mt-2 mb-10 md:m-0">
+          <ProjectsUnlockAll v-if="loadMore" />
+          <NuxtLink v-else to="/projects" class="btn btn-sm">Все проекты</NuxtLink>
+        </div>
 
+        <!-- теги -->
         <div
           v-if="allTags?.length && loadMore"
-          class="tags mb-12 ml-auto max-w-xl flex-wrap md:justify-end"
+          class="tags mb-12 max-w-xl flex-wrap justify-center md:ml-auto md:justify-end"
         >
           <NuxtLink
             v-for="tag in allTags"
@@ -93,7 +98,9 @@ const freezeLeaving = (el: Element) => {
         v-if="(projectsCount ?? 0) > limit"
         class="col-span-full text-center lg:col-span-1 lg:col-start-2"
       >
-        <NuxtLink v-if="!loadMore" to="/projects" class="btn w-full max-w-80">Все проекты</NuxtLink>
+        <NuxtLink v-if="!loadMore" to="/projects" class="btn w-full max-w-100">
+          Все проекты
+        </NuxtLink>
         <button v-else @click="limit += 6" class="btn w-full max-w-80">Показать еще</button>
       </div>
     </TransitionGroup>
