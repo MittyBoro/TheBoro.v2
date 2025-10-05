@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    container_name: theboro
+    ports:
+      - '${PORT:-3007}:${PORT:-3007}'
+    environment:
+      HOST: '0.0.0.0'
+      PORT: '${PORT:-3007}'
+    restart: unless-stopped

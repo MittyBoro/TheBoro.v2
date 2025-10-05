@@ -1,0 +1,26 @@
+# VCS
+.git
+.gitignore
+
+# Логи/кэш
+*.log
+npm-debug.log*
+.pnpm-store
+.cache
+.tmp
+.DS_Store
+
+# Сборочные артефакты
+.nuxt
+.nitro
+.output
+.data
+dist
+
+# Пакеты
+node_modules
+
+# Прочее
+*.local
+.env*
+docker-compose.yml
