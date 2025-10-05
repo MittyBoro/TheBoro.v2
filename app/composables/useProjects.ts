@@ -50,7 +50,7 @@ export const useProjects = () => ({
         return Object.entries(tagCount)
           .sort(([, a], [, b]) => b - a)
           .map(([tag]) => tag)
-          .filter((tag) => (tagCount[tag] ?? 0) > 3)
+          .filter((tag) => (tagCount[tag] ?? 0) > 2)
       })
   },
 

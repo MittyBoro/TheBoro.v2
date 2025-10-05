@@ -14,8 +14,8 @@ const similar = <any>(
 </script>
 
 <template>
-  <div class="max-w-4xl">
-    <article v-if="project" class="group card card-xl mx-auto mt-20 max-w-4xl overflow-hidden">
+  <div class="mx-auto mt-20 max-w-4xl">
+    <article v-if="project" class="group card card-xl">
       <!-- Preview -->
       <ProjectsPreview :project="project" class="-m-12" />
 
@@ -30,7 +30,7 @@ const similar = <any>(
     </article>
 
     <!-- Similar Projects -->
-    <BaseTitle class="mt-32 text-center">
+    <BaseTitle class="mt-24 text-center">
       <span class="text-primary">Similar </span>
       <span>projects</span>
     </BaseTitle>

@@ -54,7 +54,7 @@ const projectDate = project?.date
         {{ projectDate }}
       </div>
       <div v-if="project.tags" class="tags ml-auto">
-        <NuxtLink v-for="tag in project.tags" :to="`/projects?tags=${tag}`" :key="tag" class="tag">
+        <NuxtLink v-for="tag in project.tags" :to="`/projects?tag=${tag}`" :key="tag" class="tag">
           {{ tag }}
         </NuxtLink>
       </div>

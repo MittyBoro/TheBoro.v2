@@ -126,7 +126,7 @@ html {
 }
 
 .tag {
-  @apply relative overflow-hidden px-3 py-1 text-xs;
+  @apply relative px-3 py-1 text-xs;
   @apply bg-white/5 ring-1 ring-white/10 transition;
 
   border-radius: 12px 6px;
@@ -138,4 +138,8 @@ html {
 
 .tag.--dark {
   @apply bg-black/30 ring-1;
+}
+
+a.tag {
+  @apply hover:bg-white/20;
 }
