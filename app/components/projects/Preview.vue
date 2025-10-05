@@ -5,9 +5,9 @@ const { project } = defineProps<{ project: ProjectsCollectionItem }>()
 </script>
 
 <template>
-  <div
+  <span
     v-if="project.preview"
-    class="relative mask-b-from-white mask-b-from-30% mask-b-to-black mask-luminance transition"
+    class="relative block mask-b-from-white mask-b-from-30% mask-b-to-black mask-luminance transition"
   >
     <NuxtPicture
       :src="project.preview"
@@ -20,7 +20,7 @@ const { project } = defineProps<{ project: ProjectsCollectionItem }>()
         alt: `Image for ${project.title}`,
       }"
     />
-    <div class="absolute inset-0 bg-black/10 mix-blend-hue"></div>
-    <div class="bg-primary/30 absolute inset-0 mix-blend-hue"></div>
-  </div>
+    <span class="absolute inset-0 bg-black/10 mix-blend-hue"></span>
+    <span class="bg-primary/30 absolute inset-0 mix-blend-hue"></span>
+  </span>
 </template>

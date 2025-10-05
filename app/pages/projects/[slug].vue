@@ -36,6 +36,8 @@ const similar = <any>(
     </BaseTitle>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <ProjectsCard v-for="project in similar" :key="project.path" :project="project" mini />
+
+      <NuxtLink to="/projects" class="btn md:col-span-1 md:col-start-2">Все проекты</NuxtLink>
     </div>
   </div>
 </template>
